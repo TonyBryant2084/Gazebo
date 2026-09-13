@@ -394,7 +394,7 @@ def generate_launch_description():
     # 1. Launch File
     ld.add_action(action_robot_description)
     ld.add_action(action_ros2_controllers)
-    ld.add_action(action_append_environment_variable)
+    # ld.add_action(action_append_environment_variable)
     ld.add_action(action_gazebo)
 
     # 2. Node
