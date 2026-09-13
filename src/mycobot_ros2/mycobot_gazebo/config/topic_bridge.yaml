@@ -1,0 +1,70 @@
+# lazy:
+#   1. Gazebo 启动 -> ros_gz_bridge 启动
+#   2. ROS 2 Node 启动
+#   3. 如果 ROS 2 Node 订阅了这个 Topic
+#      -> ros_gz_bridge 检测到 ROS 2 侧存在订阅者
+#      -> 建立 Gazebo ↔ ROS 2 的数据连接
+#   4. 如果没有 ROS 2 Node 订阅这个 Topic
+#      -> 不建立对应的数据连接
+
+# Gazebo Sensors Plugin 发布的相机信息 Topic
+- 
+  # ROS 2 侧的 Topic 名称
+  ros_topic_name: "camera_head/depth/camera_info"
+
+  # Gazebo 侧的 Topic 名称
+  gz_topic_name: "camera_head/camera_info"
+
+  # ROS 2 侧的消息类型：相机信息
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+
+  # Gazebo 侧的消息类型：相机信息
+  gz_type_name: "gz.msgs.CameraInfo"
+
+  # 数据传输方向：Gazebo → ROS 2
+  direction: GZ_TO_ROS
+
+  # 懒加载：只有 ROS 2 侧有节点订阅该 Topic 时，才建立数据连接
+  lazy: true
+
+
+# Gazebo Sensors Plugin 发布的点云 Topic
+-
+  # ROS 2 侧的 Topic 名称
+  ros_topic_name: "camera_head/depth/color/points"
+
+  # Gazebo 侧的 Topic 名称
+  gz_topic_name: "camera_head/points"
+
+  # ROS 2 侧的消息类型：PointCloud2 点云数据
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+
+  # Gazebo 侧的消息类型：PointCloudPacked 点云数据
+  gz_type_name: "gz.msgs.PointCloudPacked"
+
+  # 数据传输方向：Gazebo → ROS 2
+  direction: GZ_TO_ROS
+
+  # 懒加载：只有 ROS 2 侧有节点订阅该 Topic 时，才建立数据连接
+  lazy: true
+
+
+# Gazebo 仿真时钟 → ROS 2
+-
+  # ROS 2 侧的 Topic 名称
+  ros_topic_name: "clock"
+
+  # Gazebo 侧的 Topic 名称
+  gz_topic_name: "clock"
+
+  # ROS 2 侧的消息类型：Clock
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+
+  # Gazebo 侧的消息类型：Clock
+  gz_type_name: "gz.msgs.Clock"
+
+  # 数据传输方向：Gazebo → ROS 2
+  direction: GZ_TO_ROS
+
+  # 不使用懒加载，Bridge 启动后立即建立时钟连接
+  lazy: false

@@ -1,35 +1,71 @@
-# Path:
+# ==================== Path：路径 ====================
 
-# 1. share 文件夹路径查找
+# 查找 ROS 2 Package 的 share 文件夹路径
 from launch_ros.substitutions import FindPackageShare
 
-# 2. 路径缝合
+# 拼接路径
 from launch.substitutions import PathJoinSubstitution
 
-# Arguments:
-# 1. 声明
-from launch.actions import DeclareLaunchArgument 
-# 2. 使用
+
+# ==================== Launch Argument：启动参数 ====================
+
+# 声明 Launch 参数
+from launch.actions import DeclareLaunchArgument
+
+# 获取 Launch 参数的值
 from launch.substitutions import LaunchConfiguration
 
-# Action:
 
-# 1. Launch File
+# ==================== Substitution：替换 ====================
 
-#   1) 把一个 Python launch 文件的路径，转换成 ROS 2 Launch 系统能够加载的 LaunchDescription 来源
-from launch.launch_description_sources import PythonLaunchDescriptionSource
+# 执行命令，并把命令输出作为一个值
+from launch.substitutions import Command
 
-#   2) 告诉 ROS2 把这个 Launch 文件包含进我当前的 Launch 文件里执行
-from launch.actions import IncludeLaunchDescription
+# 指定参数值的数据类型
+from launch_ros.parameter_descriptions import ParameterValue
 
-# 2. Node
+
+# ==================== Action：动作 ====================
+
+# LaunchDescription：管理整个 Launch 文件中的 Action
+from launch import LaunchDescription
+
+# Node：启动 ROS 2 节点
 from launch_ros.actions import Node
 
-# 3. 启动条件
+# ExecuteProcess：启动外部进程
+from launch.actions import ExecuteProcess
+
+# IncludeLaunchDescription：包含并执行其他 Launch 文件
+from launch.actions import IncludeLaunchDescription
+
+# PythonLaunchDescriptionSource：
+# 将 Python Launch 文件转换为 LaunchDescription 来源
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+
+# TimerAction：延迟执行 Action
+from launch.actions import TimerAction
+
+# RegisterEventHandler：注册事件处理器
+from launch.actions import RegisterEventHandler
+
+# AppendEnvironmentVariable：向环境变量追加内容
+from launch.actions import AppendEnvironmentVariable
+
+
+# ==================== Condition：条件 ====================
+
+# 根据条件决定 Action 是否执行
 from launch.conditions import IfCondition
 
-# 4. Container
-from launch import LaunchDescription
+
+# ==================== Event Handler：事件处理 ====================
+
+# OnProcessExit：进程退出时触发事件
+from launch.event_handlers import OnProcessExit
+
+
+# ==================== LaunchDescription ====================
 
 # 启动生成函数
 def generate_launch_description():
@@ -121,7 +157,7 @@ def generate_launch_description():
     )
     condition_topic_bridge = LaunchConfiguration("condition_topic_bridge")
     #   5) image_bridge
-    argument_conditino_image_bridge = DeclareLaunchArgument(
+    argument_condition_image_bridge = DeclareLaunchArgument(
         name="condition_image_bridge",
         default_value="false"
     )
@@ -228,6 +264,16 @@ def generate_launch_description():
         condition=IfCondition(condition_ros2_controllers)
     )
 
+    action_append_environment_variable = AppendEnvironmentVariable(
+        # 1. Gazebo Sim 的环境变量
+        "GZ_SIM_RESOURCE_PATH",
+        # 2. 追加的 Gazebo 模型目录
+        PathJoinSubstitution([
+            share_path_mycobot_gazebo,
+            "world"
+        ])
+    )
+
     # 3. Gazebo (Launch)
     action_gazebo = IncludeLaunchDescription(
         # 1. 启动文件
@@ -254,7 +300,7 @@ def generate_launch_description():
         # 1. 包名
         package="ros_gz_bridge",
         # 2. 可执行程序
-        executable="topic_bridge",
+        executable="parameter_bridge",
         # 3. 参数
         parameters=[{
             "config_file": file_path_topic_bridge
@@ -331,7 +377,7 @@ def generate_launch_description():
     ld.add_action(argument_condition_ros2_controllers)
     ld.add_action(argument_condition_gazebo)
     ld.add_action(argument_condition_topic_bridge)
-    ld.add_action(argument_conditino_image_bridge)
+    ld.add_action(argument_condition_image_bridge)
     ld.add_action(argument_condition_spawner)
 
     # 3. robot
@@ -348,12 +394,13 @@ def generate_launch_description():
     # 1. Launch File
     ld.add_action(action_robot_description)
     ld.add_action(action_ros2_controllers)
-    # ld.add_action(action_gazebo)
+    ld.add_action(action_append_environment_variable)
+    ld.add_action(action_gazebo)
 
     # 2. Node
     # ld.add_action(action_topic_bridge)
     # ld.add_action(action_image_bridge)
-    # ld.add_action(action_spawner)
+    ld.add_action(action_spawner)
 
     # 返回完整的 LaunchDescription
     return ld

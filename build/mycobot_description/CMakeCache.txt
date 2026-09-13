@@ -334,6 +334,9 @@ mycobot_description_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 mycobot_description_SOURCE_DIR:STATIC=/home/tony/Gazebo/src/mycobot_ros2/mycobot_description
 
+//The directory containing a CMake configuration file for urdf_tutorial.
+urdf_tutorial_DIR:PATH=/opt/ros/jazzy/share/urdf_tutorial/cmake
+
 //Path to a program.
 xmllint_BIN:FILEPATH=/usr/bin/xmllint
 

@@ -315,8 +315,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "launch" "meshes" "rviz" "urdf" "DESTINATION" "share/mycobot_description")
-ament_cmake_symlink_install_directory("/home/tony/Gazebo/src/mycobot_ros2/mycobot_description" DIRECTORY "launch" "meshes" "rviz" "urdf" "DESTINATION" "share/mycobot_description")
+# install(DIRECTORY "launch" "meshes" "urdf" "rviz" "DESTINATION" "share/mycobot_description")
+ament_cmake_symlink_install_directory("/home/tony/Gazebo/src/mycobot_ros2/mycobot_description" DIRECTORY "launch" "meshes" "urdf" "rviz" "DESTINATION" "share/mycobot_description")
 
 # install(FILES "/home/tony/Gazebo/build/mycobot_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/mycobot_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/tony/Gazebo/src/mycobot_ros2/mycobot_description" FILES "/home/tony/Gazebo/build/mycobot_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/mycobot_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
