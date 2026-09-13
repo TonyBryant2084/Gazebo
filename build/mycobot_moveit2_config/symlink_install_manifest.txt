@@ -1,0 +1,16 @@
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/launch/ros2_controllers.launch.py
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/ament_index/resource_index/package_run_dependencies/mycobot_moveit2_config
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/ament_index/resource_index/parent_prefix_path/mycobot_moveit2_config
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/environment/ament_prefix_path.sh
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/environment/ament_prefix_path.dsv
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/environment/path.sh
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/environment/path.dsv
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/local_setup.bash
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/local_setup.sh
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/local_setup.zsh
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/local_setup.dsv
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.dsv
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/ament_index/resource_index/packages/mycobot_moveit2_config
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/cmake/mycobot_moveit2_configConfig.cmake
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/cmake/mycobot_moveit2_configConfig-version.cmake
+/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.xml

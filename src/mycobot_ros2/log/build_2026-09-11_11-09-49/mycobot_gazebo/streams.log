@@ -1,0 +1,75 @@
+[0.009s] Invoking command in '/home/tony/Gazebo/src/mycobot_ros2/build/mycobot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_gazebo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo
+[0.064s] -- The C compiler identification is GNU 13.3.0
+[0.113s] -- The CXX compiler identification is GNU 13.3.0
+[0.129s] -- Detecting C compiler ABI info
+[0.207s] -- Detecting C compiler ABI info - done
+[0.216s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.216s] -- Detecting C compile features
+[0.216s] -- Detecting C compile features - done
+[0.224s] -- Detecting CXX compiler ABI info
+[0.319s] -- Detecting CXX compiler ABI info - done
+[0.328s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.328s] -- Detecting CXX compile features
+[0.328s] -- Detecting CXX compile features - done
+[0.332s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.467s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.544s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.599s] -- Found controller_manager: 4.45.2 (/opt/ros/jazzy/share/controller_manager/cmake)
+[0.673s] -- Found rosidl_generator_c: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.692s] -- Found rosidl_generator_cpp: 4.6.9 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.715s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.744s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.872s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.877s] -- Found rmw_fastrtps_cpp: 8.4.4 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.973s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[0.998s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.030s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.163s] [0mCMake Deprecation Warning at /opt/ros/jazzy/share/tl_expected/cmake/tl_expectedConfig.cmake:37 (message):
+[1.163s]   Package 'tl_expected' is deprecated (This package will be removed in ROS 2
+[1.163s]   Lyrical Luth.
+[1.163s] 
+[1.163s]         Use tl/expected.hpp from libexpected-dev,
+[1.163s]         or rcpputils/tl_expected/expected.hpp if the system header is not available)
+[1.163s] Call Stack (most recent call first):
+[1.163s]   /opt/ros/jazzy/share/parameter_traits/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.164s]   /opt/ros/jazzy/share/parameter_traits/cmake/parameter_traitsConfig.cmake:41 (include)
+[1.164s]   /opt/ros/jazzy/share/controller_manager/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.164s]   /opt/ros/jazzy/share/controller_manager/cmake/controller_managerConfig.cmake:41 (include)
+[1.164s]   CMakeLists.txt:10 (find_package)
+[1.164s] 
+[1.164s] [0m
+[1.855s] -- Found gripper_controllers: 4.40.1 (/opt/ros/jazzy/share/gripper_controllers/cmake)
+[1.918s] -- Found eigen3_cmake_module: 0.3.1 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[1.920s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.921s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.049s] -- Found ros2_control: 4.45.2 (/opt/ros/jazzy/share/ros2_control/cmake)
+[2.055s] -- Found ros2_controllers: 4.40.1 (/opt/ros/jazzy/share/ros2_controllers/cmake)
+[2.060s] -- Found xacro: 2.1.1 (/opt/ros/jazzy/share/xacro/cmake)
+[2.062s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[2.180s] -- Added test 'lint_cmake' to check CMake code style
+[2.181s] -- Added test 'xmllint' to check XML markup files
+[2.183s] -- Configuring done (2.2s)
+[2.188s] -- Generating done (0.0s)
+[2.190s] -- Build files have been written to: /home/tony/Gazebo/src/mycobot_ros2/build/mycobot_gazebo
+[2.201s] Invoked command in '/home/tony/Gazebo/src/mycobot_ros2/build/mycobot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_gazebo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo
+[2.202s] Invoking command in '/home/tony/Gazebo/src/mycobot_ros2/build/mycobot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/src/mycobot_ros2/build/mycobot_gazebo -- -j16 -l16
+[2.245s] Invoked command in '/home/tony/Gazebo/src/mycobot_ros2/build/mycobot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/src/mycobot_ros2/build/mycobot_gazebo -- -j16 -l16
+[2.246s] Invoking command in '/home/tony/Gazebo/src/mycobot_ros2/build/mycobot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/src/mycobot_ros2/build/mycobot_gazebo
+[2.253s] -- Install configuration: ""
+[2.253s] -- Execute custom install script
+[2.254s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/ament_index/resource_index/package_run_dependencies/mycobot_gazebo
+[2.261s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/ament_index/resource_index/parent_prefix_path/mycobot_gazebo
+[2.268s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/environment/ament_prefix_path.sh
+[2.276s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/environment/ament_prefix_path.dsv
+[2.284s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/environment/path.sh
+[2.292s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/environment/path.dsv
+[2.299s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/local_setup.bash
+[2.306s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/local_setup.sh
+[2.315s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/local_setup.zsh
+[2.327s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/local_setup.dsv
+[2.335s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/package.dsv
+[2.345s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/ament_index/resource_index/packages/mycobot_gazebo
+[2.352s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/cmake/mycobot_gazeboConfig.cmake
+[2.359s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/cmake/mycobot_gazeboConfig-version.cmake
+[2.366s] -- Symlinking: /home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/package.xml
+[2.376s] Invoked command in '/home/tony/Gazebo/src/mycobot_ros2/build/mycobot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/src/mycobot_ros2/build/mycobot_gazebo

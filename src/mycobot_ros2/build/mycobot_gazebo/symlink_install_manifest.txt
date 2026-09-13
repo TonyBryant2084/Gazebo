@@ -1,0 +1,15 @@
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/ament_index/resource_index/package_run_dependencies/mycobot_gazebo
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/ament_index/resource_index/parent_prefix_path/mycobot_gazebo
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/environment/ament_prefix_path.sh
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/environment/ament_prefix_path.dsv
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/environment/path.sh
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/environment/path.dsv
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/local_setup.bash
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/local_setup.sh
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/local_setup.zsh
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/local_setup.dsv
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/package.dsv
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/ament_index/resource_index/packages/mycobot_gazebo
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/cmake/mycobot_gazeboConfig.cmake
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/cmake/mycobot_gazeboConfig-version.cmake
+/home/tony/Gazebo/src/mycobot_ros2/install/mycobot_gazebo/share/mycobot_gazebo/package.xml

@@ -1,0 +1,24 @@
+[0.016s] Invoking command in '/home/tony/Gazebo/build/mycobot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_gazebo -- -j16 -l16
+[0.077s] Invoked command in '/home/tony/Gazebo/build/mycobot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_gazebo -- -j16 -l16
+[0.079s] Invoking command in '/home/tony/Gazebo/build/mycobot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_gazebo
+[0.086s] -- Install configuration: ""
+[0.086s] -- Execute custom install script
+[0.087s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/launch/gazebo.launch.py
+[0.087s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/config/topic_bridge.yaml
+[0.088s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/worlds/pick_and_place.world
+[0.088s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/ament_index/resource_index/package_run_dependencies/mycobot_gazebo
+[0.089s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/ament_index/resource_index/parent_prefix_path/mycobot_gazebo
+[0.089s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/environment/ament_prefix_path.sh
+[0.089s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/environment/ament_prefix_path.dsv
+[0.090s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/environment/path.sh
+[0.090s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/environment/path.dsv
+[0.091s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/local_setup.bash
+[0.091s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/local_setup.sh
+[0.091s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/local_setup.zsh
+[0.091s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/local_setup.dsv
+[0.092s] -- Symlinking: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/package.dsv
+[0.097s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/ament_index/resource_index/packages/mycobot_gazebo
+[0.098s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/cmake/mycobot_gazeboConfig.cmake
+[0.098s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/cmake/mycobot_gazeboConfig-version.cmake
+[0.098s] -- Up-to-date symlink: /home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/package.xml
+[0.100s] Invoked command in '/home/tony/Gazebo/build/mycobot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_gazebo
