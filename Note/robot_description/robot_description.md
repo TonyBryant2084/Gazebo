@@ -22,6 +22,7 @@
 | `/rosout`            | 日志    | ROS 2 节点的日志输出     |
 |   `/camera_head/depth/camera_info (bridge)`   |  深度相机参数  |  提供相机内参、畸变等信息 |
 |   `/camera_head/depth/color/points (bridge)`   |  三维点云  |  提供相机获取的三维环境数据 |
+|    /clock   |  ROS 2 中专门用于传递 Gazebo 仿真时间信息的 Topic  |  将 Gazebo 的仿真时间提供给 ROS 2 节点，使设置了 use_sim_time=true 的节点能够使用 Gazebo 的仿真时间 |
 
 ## 3. Action
 
@@ -84,5 +85,24 @@
 |---|---|
 |  /ros_gz_bridge → /camera_head/depth/color/points |  深度相机生成的三维点云数据: Gazebo topic → Ros2 topic |
 |  /ros_gz_bridge → /camera_head/depth/camera_info |  深度相机的相机参数信息: Gazebo topic → Ros2 topic  |
+|   /ros_gz_bridge → /clock  |     把 Gazebo 内部产生的仿真时间转换成 ROS 2 能使用的 /clock 消息，并发布到 ROS2    |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
