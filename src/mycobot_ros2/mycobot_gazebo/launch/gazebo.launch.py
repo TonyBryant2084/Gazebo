@@ -159,7 +159,7 @@ def generate_launch_description():
     #   5) image_bridge
     argument_condition_image_bridge = DeclareLaunchArgument(
         name="condition_image_bridge",
-        default_value="false"
+        default_value="true"
     )
     condition_image_bridge = LaunchConfiguration("condition_image_bridge")
     #   6) spawner
@@ -296,7 +296,7 @@ def generate_launch_description():
     )
 
     # 4. 话题数据桥梁 (Node)
-    action_topic_bridge = Node(
+    action_parameter_bridge = Node(
         # 1. 包名
         package="ros_gz_bridge",
         # 2. 可执行程序
@@ -392,7 +392,7 @@ def generate_launch_description():
     # Actions
     # ① action_robot_description  ← 已经搞懂
     # ② action_gazebo             ← 下一步
-    # ③ action_topic_bridge       ← 再下一步
+    # ③ action_parameter_bridge       ← 再下一步
     # ④ action_spawner             ← 再下一步
     # ⑤ action_ros2_controllers    ← 最后
     # ⑥ action_image_bridge        ← 暂时不加
@@ -404,9 +404,9 @@ def generate_launch_description():
     ld.add_action(action_gazebo)
 
     # 2. Node
-    # ld.add_action(action_topic_bridge)
+    ld.add_action(action_parameter_bridge)
     # ld.add_action(action_image_bridge)
-    # ld.add_action(action_spawner)
+    ld.add_action(action_spawner)
 
     # 返回完整的 LaunchDescription
     return ld

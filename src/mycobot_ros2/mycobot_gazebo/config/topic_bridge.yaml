@@ -1,3 +1,12 @@
+# gz_topic_name 与 ros_topic_name
+# 1. gz_topic_name
+#   1) 必须对应 Gazebo 实际产生的 Topic。
+#   2) 未启动 spawner 时，机器人内部的 Sensor/Plugin 尚未加载，对应 Gazebo Topic 可能还不存在。
+# 2. ros_topic_name
+#   1) 可以自定义。
+#   2) 只要 ROS 2 中使用该 Topic 的节点名称与它保持一致即可。
+# 3. gz_topic_name 对接 Gazebo 已有 Topic；ros_topic_name 定义桥接后的 ROS 2 Topic。
+
 # lazy:
 #   1. Gazebo 启动 -> ros_gz_bridge 启动
 #   2. ROS 2 Node 启动
@@ -12,11 +21,11 @@
   # ROS 2 侧的 Topic 名称
   ros_topic_name: "camera_head/depth/camera_info"
 
-  # Gazebo 侧的 Topic 名称
-  gz_topic_name: "camera_head/camera_info"
-
   # ROS 2 侧的消息类型：相机信息
   ros_type_name: "sensor_msgs/msg/CameraInfo"
+
+  # Gazebo 侧的 Topic 名称
+  gz_topic_name: "camera_head/camera_info"
 
   # Gazebo 侧的消息类型：相机信息
   gz_type_name: "gz.msgs.CameraInfo"
@@ -33,11 +42,11 @@
   # ROS 2 侧的 Topic 名称
   ros_topic_name: "camera_head/depth/color/points"
 
-  # Gazebo 侧的 Topic 名称
-  gz_topic_name: "camera_head/points"
-
   # ROS 2 侧的消息类型：PointCloud2 点云数据
   ros_type_name: "sensor_msgs/msg/PointCloud2"
+
+  # Gazebo 侧的 Topic 名称
+  gz_topic_name: "camera_head/points"
 
   # Gazebo 侧的消息类型：PointCloudPacked 点云数据
   gz_type_name: "gz.msgs.PointCloudPacked"
@@ -54,11 +63,11 @@
   # ROS 2 侧的 Topic 名称
   ros_topic_name: "clock"
 
-  # Gazebo 侧的 Topic 名称
-  gz_topic_name: "clock"
-
   # ROS 2 侧的消息类型：Clock
   ros_type_name: "rosgraph_msgs/msg/Clock"
+
+  # Gazebo 侧的 Topic 名称
+  gz_topic_name: "clock"
 
   # Gazebo 侧的消息类型：Clock
   gz_type_name: "gz.msgs.Clock"

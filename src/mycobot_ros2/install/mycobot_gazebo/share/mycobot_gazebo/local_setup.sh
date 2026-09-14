@@ -1,1 +1,0 @@
-/home/tony/Gazebo/src/mycobot_ros2/build/mycobot_gazebo/ament_cmake_environment_hooks/local_setup.sh

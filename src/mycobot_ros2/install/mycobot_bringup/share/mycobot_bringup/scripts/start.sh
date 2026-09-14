@@ -1,1 +1,0 @@
-/home/tony/Gazebo/src/mycobot_ros2/mycobot_bringup/scripts/start.sh
