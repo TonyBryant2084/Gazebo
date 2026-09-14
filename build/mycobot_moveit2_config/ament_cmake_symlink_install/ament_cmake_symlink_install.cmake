@@ -315,8 +315,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "launch" "DESTINATION" "share/mycobot_moveit2_config")
-ament_cmake_symlink_install_directory("/home/tony/Gazebo/src/mycobot_ros2/mycobot_moveit2_config" DIRECTORY "launch" "DESTINATION" "share/mycobot_moveit2_config")
+# install(DIRECTORY "launch" "config" "DESTINATION" "share/mycobot_moveit2_config")
+ament_cmake_symlink_install_directory("/home/tony/Gazebo/src/mycobot_ros2/mycobot_moveit2_config" DIRECTORY "launch" "config" "DESTINATION" "share/mycobot_moveit2_config")
 
 # install(FILES "/home/tony/Gazebo/build/mycobot_moveit2_config/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/mycobot_moveit2_config" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/tony/Gazebo/src/mycobot_ros2/mycobot_moveit2_config" FILES "/home/tony/Gazebo/build/mycobot_moveit2_config/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/mycobot_moveit2_config" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

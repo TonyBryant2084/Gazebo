@@ -1,1 +1,0 @@
-/home/tony/Gazebo/src/mycobot_ros2/mycobot_description/urdf/robots/install/local_setup.zsh

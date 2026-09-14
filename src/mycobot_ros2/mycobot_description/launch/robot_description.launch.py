@@ -162,7 +162,7 @@ def generate_launch_description():
     #   9) use_gazebo: 是否使用 Gazebo 仿真 
     argument_robot_use_gazebo = DeclareLaunchArgument(
         name="robot_use_gazebo",
-        default_value="false"
+        default_value="true"
     )
     robot_use_gazebo = LaunchConfiguration("robot_use_gazebo")
     #   9) use_gripper: 是否使用夹爪 

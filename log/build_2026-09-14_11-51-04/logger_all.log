@@ -1,0 +1,406 @@
+[0.137s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.137s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x71da5e387770>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x71da5e3872f0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x71da5e3872f0>>, mixin_verb=('build',))
+[0.169s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.169s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.169s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.169s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.169s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.170s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.170s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/tony/Gazebo'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.170s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extensions ['ignore', 'ignore_ament_install']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extension 'ignore'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extension 'ignore_ament_install'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extensions ['colcon_pkg']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extension 'colcon_pkg'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extensions ['colcon_meta']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extension 'colcon_meta'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extensions ['ros']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extension 'ros'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extensions ['cmake', 'python']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extension 'cmake'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extension 'python'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extensions ['python_setup_py']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note) by extension 'python_setup_py'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extensions ['ignore', 'ignore_ament_install']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extension 'ignore'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extension 'ignore_ament_install'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extensions ['colcon_pkg']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extension 'colcon_pkg'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extensions ['colcon_meta']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extension 'colcon_meta'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extensions ['ros']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extension 'ros'
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extensions ['cmake', 'python']
+[0.192s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extension 'cmake'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extension 'python'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extensions ['python_setup_py']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description) by extension 'python_setup_py'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extensions ['ignore', 'ignore_ament_install']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extension 'ignore'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extension 'ignore_ament_install'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extensions ['colcon_pkg']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extension 'colcon_pkg'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extensions ['colcon_meta']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extension 'colcon_meta'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extensions ['ros']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extension 'ros'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extensions ['cmake', 'python']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extension 'cmake'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extension 'python'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extensions ['python_setup_py']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(Note/robot_description/photos) by extension 'python_setup_py'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.193s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extension 'ignore'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extension 'ignore_ament_install'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extensions ['colcon_pkg']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extension 'colcon_pkg'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extensions ['colcon_meta']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extension 'colcon_meta'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extensions ['ros']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extension 'ros'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extensions ['cmake', 'python']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extension 'cmake'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extension 'python'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extensions ['python_setup_py']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2) by extension 'python_setup_py'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/build) by extensions ['ignore', 'ignore_ament_install']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/build) by extension 'ignore'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/build) ignored
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/install) by extensions ['ignore', 'ignore_ament_install']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/install) by extension 'ignore'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/install) ignored
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/log) by extensions ['ignore', 'ignore_ament_install']
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/log) by extension 'ignore'
+[0.195s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/log) ignored
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_bringup) by extension 'ignore'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_bringup) by extension 'ignore_ament_install'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_bringup) by extensions ['colcon_pkg']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_bringup) by extension 'colcon_pkg'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_bringup) by extensions ['colcon_meta']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_bringup) by extension 'colcon_meta'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_bringup) by extensions ['ros']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_bringup) by extension 'ros'
+[0.199s] DEBUG:colcon.colcon_core.package_identification:Package 'src/mycobot_ros2/mycobot_bringup' with type 'ros.ament_cmake' and name 'mycobot_bringup'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_description) by extensions ['ignore', 'ignore_ament_install']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_description) by extension 'ignore'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_description) by extension 'ignore_ament_install'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_description) by extensions ['colcon_pkg']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_description) by extension 'colcon_pkg'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_description) by extensions ['colcon_meta']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_description) by extension 'colcon_meta'
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_description) by extensions ['ros']
+[0.199s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_description) by extension 'ros'
+[0.199s] DEBUG:colcon.colcon_core.package_identification:Package 'src/mycobot_ros2/mycobot_description' with type 'ros.ament_cmake' and name 'mycobot_description'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_gazebo) by extensions ['ignore', 'ignore_ament_install']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_gazebo) by extension 'ignore'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_gazebo) by extension 'ignore_ament_install'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_gazebo) by extensions ['colcon_pkg']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_gazebo) by extension 'colcon_pkg'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_gazebo) by extensions ['colcon_meta']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_gazebo) by extension 'colcon_meta'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_gazebo) by extensions ['ros']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_gazebo) by extension 'ros'
+[0.201s] DEBUG:colcon.colcon_core.package_identification:Package 'src/mycobot_ros2/mycobot_gazebo' with type 'ros.ament_cmake' and name 'mycobot_gazebo'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_moveit2_config) by extensions ['ignore', 'ignore_ament_install']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_moveit2_config) by extension 'ignore'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_moveit2_config) by extension 'ignore_ament_install'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_moveit2_config) by extensions ['colcon_pkg']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_moveit2_config) by extension 'colcon_pkg'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_moveit2_config) by extensions ['colcon_meta']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_moveit2_config) by extension 'colcon_meta'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_moveit2_config) by extensions ['ros']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(src/mycobot_ros2/mycobot_moveit2_config) by extension 'ros'
+[0.202s] DEBUG:colcon.colcon_core.package_identification:Package 'src/mycobot_ros2/mycobot_moveit2_config' with type 'ros.ament_cmake' and name 'mycobot_moveit2_config'
+[0.202s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.202s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.202s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.202s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.202s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.218s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tony/Gazebo/install/mycobot_moveit2_config' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.218s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tony/Gazebo/install/mycobot_gazebo' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.218s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tony/Gazebo/install/mycobot_description' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.218s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/tony/Gazebo/install/mycobot_bringup' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.218s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/tony/Gazebo/install/mycobot_moveit2_config' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.218s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/tony/Gazebo/install/mycobot_gazebo' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.218s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/tony/Gazebo/install/mycobot_description' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.218s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/tony/Gazebo/install/mycobot_bringup' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.219s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 0 installed packages in /home/tony/Gazebo/install
+[0.220s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 405 installed packages in /opt/ros/jazzy
+[0.222s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.278s] Level 5:colcon.colcon_core.verb:set package 'mycobot_bringup' build argument 'cmake_args' from command line to 'None'
+[0.278s] Level 5:colcon.colcon_core.verb:set package 'mycobot_bringup' build argument 'cmake_target' from command line to 'None'
+[0.278s] Level 5:colcon.colcon_core.verb:set package 'mycobot_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.278s] Level 5:colcon.colcon_core.verb:set package 'mycobot_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.278s] Level 5:colcon.colcon_core.verb:set package 'mycobot_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.278s] Level 5:colcon.colcon_core.verb:set package 'mycobot_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.278s] Level 5:colcon.colcon_core.verb:set package 'mycobot_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.278s] Level 5:colcon.colcon_core.verb:set package 'mycobot_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.278s] Level 5:colcon.colcon_core.verb:set package 'mycobot_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.278s] DEBUG:colcon.colcon_core.verb:Building package 'mycobot_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/Gazebo/build/mycobot_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/Gazebo/install/mycobot_bringup', 'merge_install': False, 'path': '/home/tony/Gazebo/src/mycobot_ros2/mycobot_bringup', 'symlink_install': True, 'test_result_base': None}
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_description' build argument 'cmake_args' from command line to 'None'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_description' build argument 'cmake_target' from command line to 'None'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.279s] DEBUG:colcon.colcon_core.verb:Building package 'mycobot_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/Gazebo/build/mycobot_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/Gazebo/install/mycobot_description', 'merge_install': False, 'path': '/home/tony/Gazebo/src/mycobot_ros2/mycobot_description', 'symlink_install': True, 'test_result_base': None}
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_gazebo' build argument 'cmake_args' from command line to 'None'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_gazebo' build argument 'cmake_target' from command line to 'None'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_gazebo' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_gazebo' build argument 'cmake_clean_cache' from command line to 'False'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_gazebo' build argument 'cmake_clean_first' from command line to 'False'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_gazebo' build argument 'cmake_force_configure' from command line to 'False'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_gazebo' build argument 'ament_cmake_args' from command line to 'None'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_gazebo' build argument 'catkin_cmake_args' from command line to 'None'
+[0.279s] Level 5:colcon.colcon_core.verb:set package 'mycobot_gazebo' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.279s] DEBUG:colcon.colcon_core.verb:Building package 'mycobot_gazebo' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/Gazebo/build/mycobot_gazebo', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/Gazebo/install/mycobot_gazebo', 'merge_install': False, 'path': '/home/tony/Gazebo/src/mycobot_ros2/mycobot_gazebo', 'symlink_install': True, 'test_result_base': None}
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'mycobot_moveit2_config' build argument 'cmake_args' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'mycobot_moveit2_config' build argument 'cmake_target' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'mycobot_moveit2_config' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'mycobot_moveit2_config' build argument 'cmake_clean_cache' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'mycobot_moveit2_config' build argument 'cmake_clean_first' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'mycobot_moveit2_config' build argument 'cmake_force_configure' from command line to 'False'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'mycobot_moveit2_config' build argument 'ament_cmake_args' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'mycobot_moveit2_config' build argument 'catkin_cmake_args' from command line to 'None'
+[0.280s] Level 5:colcon.colcon_core.verb:set package 'mycobot_moveit2_config' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.280s] DEBUG:colcon.colcon_core.verb:Building package 'mycobot_moveit2_config' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/Gazebo/build/mycobot_moveit2_config', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/Gazebo/install/mycobot_moveit2_config', 'merge_install': False, 'path': '/home/tony/Gazebo/src/mycobot_ros2/mycobot_moveit2_config', 'symlink_install': True, 'test_result_base': None}
+[0.280s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.281s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.281s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tony/Gazebo/src/mycobot_ros2/mycobot_bringup' with build type 'ament_cmake'
+[0.281s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tony/Gazebo/src/mycobot_ros2/mycobot_bringup'
+[0.283s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.283s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.283s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.287s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tony/Gazebo/src/mycobot_ros2/mycobot_description' with build type 'ament_cmake'
+[0.287s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tony/Gazebo/src/mycobot_ros2/mycobot_description'
+[0.287s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.287s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.291s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tony/Gazebo/src/mycobot_ros2/mycobot_gazebo' with build type 'ament_cmake'
+[0.291s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tony/Gazebo/src/mycobot_ros2/mycobot_gazebo'
+[0.292s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.292s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.295s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tony/Gazebo/src/mycobot_ros2/mycobot_moveit2_config' with build type 'ament_cmake'
+[0.295s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tony/Gazebo/src/mycobot_ros2/mycobot_moveit2_config'
+[0.295s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.295s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.302s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/Gazebo/build/mycobot_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/install/mycobot_bringup
+[0.305s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/Gazebo/build/mycobot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/install/mycobot_description
+[0.307s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/Gazebo/build/mycobot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_gazebo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/install/mycobot_gazebo
+[0.314s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/Gazebo/build/mycobot_moveit2_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_moveit2_config -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/install/mycobot_moveit2_config
+[1.276s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/Gazebo/build/mycobot_moveit2_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_moveit2_config -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/install/mycobot_moveit2_config
+[1.277s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/Gazebo/build/mycobot_moveit2_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_moveit2_config -- -j16 -l16
+[1.293s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/Gazebo/build/mycobot_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/install/mycobot_bringup
+[1.294s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/Gazebo/build/mycobot_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_bringup -- -j16 -l16
+[1.295s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/Gazebo/build/mycobot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/install/mycobot_description
+[1.296s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/Gazebo/build/mycobot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_description -- -j16 -l16
+[1.327s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/Gazebo/build/mycobot_moveit2_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_moveit2_config -- -j16 -l16
+[1.341s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/Gazebo/build/mycobot_moveit2_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_moveit2_config
+[1.344s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/Gazebo/build/mycobot_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_bringup -- -j16 -l16
+[1.345s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/Gazebo/build/mycobot_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_bringup
+[1.353s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/Gazebo/build/mycobot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_description -- -j16 -l16
+[1.355s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/Gazebo/build/mycobot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_description
+[1.516s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mycobot_bringup)
+[1.516s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/Gazebo/build/mycobot_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_bringup
+[1.518s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_bringup' for CMake module files
+[1.519s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_bringup' for CMake config files
+[1.519s] Level 1:colcon.colcon_core.shell:create_environment_hook('mycobot_bringup', 'cmake_prefix_path')
+[1.519s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/hook/cmake_prefix_path.ps1'
+[1.520s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/hook/cmake_prefix_path.dsv'
+[1.520s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/hook/cmake_prefix_path.sh'
+[1.521s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_bringup/bin'
+[1.521s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_bringup/lib/pkgconfig/mycobot_bringup.pc'
+[1.521s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_bringup/lib/python3.12/site-packages'
+[1.521s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_bringup/bin'
+[1.521s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/package.ps1'
+[1.523s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/package.dsv'
+[1.523s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/package.sh'
+[1.524s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/package.bash'
+[1.524s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/package.zsh'
+[1.525s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tony/Gazebo/install/mycobot_bringup/share/colcon-core/packages/mycobot_bringup)
+[1.525s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mycobot_bringup)
+[1.525s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_bringup' for CMake module files
+[1.526s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_bringup' for CMake config files
+[1.526s] Level 1:colcon.colcon_core.shell:create_environment_hook('mycobot_bringup', 'cmake_prefix_path')
+[1.526s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/hook/cmake_prefix_path.ps1'
+[1.527s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/hook/cmake_prefix_path.dsv'
+[1.527s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/hook/cmake_prefix_path.sh'
+[1.528s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_bringup/bin'
+[1.528s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_bringup/lib/pkgconfig/mycobot_bringup.pc'
+[1.528s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_bringup/lib/python3.12/site-packages'
+[1.528s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_bringup/bin'
+[1.528s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/package.ps1'
+[1.529s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/package.dsv'
+[1.530s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/package.sh'
+[1.530s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/package.bash'
+[1.531s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_bringup/share/mycobot_bringup/package.zsh'
+[1.531s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tony/Gazebo/install/mycobot_bringup/share/colcon-core/packages/mycobot_bringup)
+[1.532s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mycobot_moveit2_config)
+[1.532s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_moveit2_config' for CMake module files
+[1.533s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/Gazebo/build/mycobot_moveit2_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_moveit2_config
+[1.533s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_moveit2_config' for CMake config files
+[1.533s] Level 1:colcon.colcon_core.shell:create_environment_hook('mycobot_moveit2_config', 'cmake_prefix_path')
+[1.534s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/hook/cmake_prefix_path.ps1'
+[1.534s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/hook/cmake_prefix_path.dsv'
+[1.534s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/hook/cmake_prefix_path.sh'
+[1.535s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_moveit2_config/bin'
+[1.535s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_moveit2_config/lib/pkgconfig/mycobot_moveit2_config.pc'
+[1.535s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_moveit2_config/lib/python3.12/site-packages'
+[1.535s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_moveit2_config/bin'
+[1.535s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.ps1'
+[1.536s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.dsv'
+[1.536s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.sh'
+[1.537s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.bash'
+[1.537s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.zsh'
+[1.537s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tony/Gazebo/install/mycobot_moveit2_config/share/colcon-core/packages/mycobot_moveit2_config)
+[1.538s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mycobot_moveit2_config)
+[1.538s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_moveit2_config' for CMake module files
+[1.538s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_moveit2_config' for CMake config files
+[1.539s] Level 1:colcon.colcon_core.shell:create_environment_hook('mycobot_moveit2_config', 'cmake_prefix_path')
+[1.539s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/hook/cmake_prefix_path.ps1'
+[1.539s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/hook/cmake_prefix_path.dsv'
+[1.540s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/hook/cmake_prefix_path.sh'
+[1.540s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_moveit2_config/bin'
+[1.540s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_moveit2_config/lib/pkgconfig/mycobot_moveit2_config.pc'
+[1.540s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_moveit2_config/lib/python3.12/site-packages'
+[1.541s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_moveit2_config/bin'
+[1.541s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.ps1'
+[1.542s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.dsv'
+[1.542s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.sh'
+[1.543s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.bash'
+[1.543s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.zsh'
+[1.544s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tony/Gazebo/install/mycobot_moveit2_config/share/colcon-core/packages/mycobot_moveit2_config)
+[1.805s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mycobot_description)
+[1.806s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_description' for CMake module files
+[1.806s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/Gazebo/build/mycobot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_description
+[1.806s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_description' for CMake config files
+[1.807s] Level 1:colcon.colcon_core.shell:create_environment_hook('mycobot_description', 'cmake_prefix_path')
+[1.807s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/hook/cmake_prefix_path.ps1'
+[1.807s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/hook/cmake_prefix_path.dsv'
+[1.807s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/hook/cmake_prefix_path.sh'
+[1.808s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_description/bin'
+[1.808s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_description/lib/pkgconfig/mycobot_description.pc'
+[1.808s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_description/lib/python3.12/site-packages'
+[1.808s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_description/bin'
+[1.809s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/package.ps1'
+[1.809s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/package.dsv'
+[1.809s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/package.sh'
+[1.810s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/package.bash'
+[1.810s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/package.zsh'
+[1.810s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tony/Gazebo/install/mycobot_description/share/colcon-core/packages/mycobot_description)
+[1.811s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mycobot_description)
+[1.811s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_description' for CMake module files
+[1.812s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_description' for CMake config files
+[1.813s] Level 1:colcon.colcon_core.shell:create_environment_hook('mycobot_description', 'cmake_prefix_path')
+[1.813s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/hook/cmake_prefix_path.ps1'
+[1.813s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/hook/cmake_prefix_path.dsv'
+[1.814s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/hook/cmake_prefix_path.sh'
+[1.814s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_description/bin'
+[1.814s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_description/lib/pkgconfig/mycobot_description.pc'
+[1.815s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_description/lib/python3.12/site-packages'
+[1.815s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_description/bin'
+[1.815s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/package.ps1'
+[1.815s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/package.dsv'
+[1.816s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/package.sh'
+[1.816s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/package.bash'
+[1.816s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/package.zsh'
+[1.817s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tony/Gazebo/install/mycobot_description/share/colcon-core/packages/mycobot_description)
+[2.532s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/Gazebo/build/mycobot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_gazebo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/install/mycobot_gazebo
+[2.534s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/Gazebo/build/mycobot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_gazebo -- -j16 -l16
+[2.570s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/Gazebo/build/mycobot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_gazebo -- -j16 -l16
+[2.571s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/Gazebo/build/mycobot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_gazebo
+[2.723s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mycobot_gazebo)
+[2.723s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_gazebo' for CMake module files
+[2.724s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/Gazebo/build/mycobot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_gazebo
+[2.724s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_gazebo' for CMake config files
+[2.724s] Level 1:colcon.colcon_core.shell:create_environment_hook('mycobot_gazebo', 'cmake_prefix_path')
+[2.724s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/hook/cmake_prefix_path.ps1'
+[2.725s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/hook/cmake_prefix_path.dsv'
+[2.725s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/hook/cmake_prefix_path.sh'
+[2.725s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_gazebo/bin'
+[2.725s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_gazebo/lib/pkgconfig/mycobot_gazebo.pc'
+[2.726s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_gazebo/lib/python3.12/site-packages'
+[2.726s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_gazebo/bin'
+[2.726s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/package.ps1'
+[2.727s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/package.dsv'
+[2.727s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/package.sh'
+[2.727s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/package.bash'
+[2.728s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/package.zsh'
+[2.728s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tony/Gazebo/install/mycobot_gazebo/share/colcon-core/packages/mycobot_gazebo)
+[2.728s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mycobot_gazebo)
+[2.728s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_gazebo' for CMake module files
+[2.729s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_gazebo' for CMake config files
+[2.729s] Level 1:colcon.colcon_core.shell:create_environment_hook('mycobot_gazebo', 'cmake_prefix_path')
+[2.729s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/hook/cmake_prefix_path.ps1'
+[2.729s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/hook/cmake_prefix_path.dsv'
+[2.730s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/hook/cmake_prefix_path.sh'
+[2.730s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_gazebo/bin'
+[2.730s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_gazebo/lib/pkgconfig/mycobot_gazebo.pc'
+[2.730s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_gazebo/lib/python3.12/site-packages'
+[2.731s] Level 1:colcon.colcon_core.environment:checking '/home/tony/Gazebo/install/mycobot_gazebo/bin'
+[2.731s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/package.ps1'
+[2.731s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/package.dsv'
+[2.732s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/package.sh'
+[2.732s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/package.bash'
+[2.733s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/Gazebo/install/mycobot_gazebo/share/mycobot_gazebo/package.zsh'
+[2.733s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tony/Gazebo/install/mycobot_gazebo/share/colcon-core/packages/mycobot_gazebo)
+[2.733s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[2.733s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[2.733s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[2.733s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[2.740s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[2.740s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[2.740s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[2.760s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.760s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tony/Gazebo/install/local_setup.ps1'
+[2.761s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tony/Gazebo/install/_local_setup_util_ps1.py'
+[2.762s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tony/Gazebo/install/setup.ps1'
+[2.764s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tony/Gazebo/install/local_setup.sh'
+[2.764s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tony/Gazebo/install/_local_setup_util_sh.py'
+[2.765s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tony/Gazebo/install/setup.sh'
+[2.766s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tony/Gazebo/install/local_setup.bash'
+[2.766s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tony/Gazebo/install/setup.bash'
+[2.767s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tony/Gazebo/install/local_setup.zsh'
+[2.768s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tony/Gazebo/install/setup.zsh'

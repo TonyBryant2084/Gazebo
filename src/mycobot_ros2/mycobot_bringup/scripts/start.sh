@@ -34,7 +34,7 @@ ros2 launch mycobot_gazebo gazebo.launch.py \
     condition_topic_bridge:=true \
     condition_image_bridge:=false \
     condition_spawner:=true \
-    robot_name:="robot" \
+    robot_name:="mycobot_280" \
     robot_x:=0.0 \
     robot_y:=0.0 \
     robot_z:=0.0 \

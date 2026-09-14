@@ -390,17 +390,23 @@ def generate_launch_description():
     ld.add_action(argument_robot_yaw)
 
     # Actions
+    # ① action_robot_description  ← 已经搞懂
+    # ② action_gazebo             ← 下一步
+    # ③ action_topic_bridge       ← 再下一步
+    # ④ action_spawner             ← 再下一步
+    # ⑤ action_ros2_controllers    ← 最后
+    # ⑥ action_image_bridge        ← 暂时不加
 
     # 1. Launch File
     ld.add_action(action_robot_description)
-    ld.add_action(action_ros2_controllers)
+    # ld.add_action(action_ros2_controllers)
     # ld.add_action(action_append_environment_variable)
     ld.add_action(action_gazebo)
 
     # 2. Node
     # ld.add_action(action_topic_bridge)
     # ld.add_action(action_image_bridge)
-    ld.add_action(action_spawner)
+    # ld.add_action(action_spawner)
 
     # 返回完整的 LaunchDescription
     return ld
