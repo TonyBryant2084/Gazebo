@@ -131,7 +131,7 @@ ROBOT_ARGUMENTS = [
 def generate_ros2_controllers_config(context):
 
     # 1. prefix: 前缀名称 (多机器人场景)
-    robot_prefix = LaunchConfiguration("robot_prefix").perfom(context)
+    robot_prefix = LaunchConfiguration("robot_prefix").perform(context)
     
     # 2. flange_link: 安装末端装置(gripper, camera)的实体 link 
     robot_flange_link = LaunchConfiguration("robot_flange_link").perform(context)
@@ -344,18 +344,6 @@ def generate_launch_description():
     ld.add_action(argument_use_rsp)
     ld.add_action(argument_use_jsp)
     ld.add_action(argument_use_rviz2)
-
-    # 3. robot
-    ld.add_action(argument_robot_name)
-    ld.add_action(argument_robot_prefix)
-    ld.add_action(argument_robot_add_world)
-    ld.add_action(argument_robot_base_link)
-    ld.add_action(argument_robot_base_type)
-    ld.add_action(argument_robot_flange_link)
-    ld.add_action(argument_robot_gripper_type)
-    ld.add_action(argument_robot_use_camera)
-    ld.add_action(argument_robot_use_gazebo)
-    ld.add_action(argument_robot_use_gripper)
 
     # Actions
     # 1. Self-defined python file
