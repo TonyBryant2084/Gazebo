@@ -108,7 +108,7 @@
         flange_link="$(arg flange_link)"
         prefix="$(arg prefix)"
     >
-
+        <!-- block参数传给宏 -->
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
 
     </xacro:mycobot_280_arm>

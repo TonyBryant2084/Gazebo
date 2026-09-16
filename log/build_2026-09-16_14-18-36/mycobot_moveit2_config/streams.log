@@ -1,0 +1,50 @@
+[0.015s] Invoking command in '/home/tony/Gazebo/build/mycobot_moveit2_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_moveit2_config -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/install/mycobot_moveit2_config
+[0.107s] -- The C compiler identification is GNU 13.3.0
+[0.193s] -- The CXX compiler identification is GNU 13.3.0
+[0.212s] -- Detecting C compiler ABI info
+[0.294s] -- Detecting C compiler ABI info - done
+[0.304s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.305s] -- Detecting C compile features
+[0.305s] -- Detecting C compile features - done
+[0.316s] -- Detecting CXX compiler ABI info
+[0.421s] -- Detecting CXX compiler ABI info - done
+[0.432s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.432s] -- Detecting CXX compile features
+[0.433s] -- Detecting CXX compile features - done
+[0.445s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.614s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.691s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.758s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[0.875s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.875s] -- Configured 'flake8' exclude dirs and/or files: 
+[0.875s] -- Added test 'lint_cmake' to check CMake code style
+[0.876s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.877s] -- Added test 'xmllint' to check XML markup files
+[0.879s] -- Configuring done (0.9s)
+[0.881s] -- Generating done (0.0s)
+[0.882s] -- Build files have been written to: /home/tony/Gazebo/build/mycobot_moveit2_config
+[0.887s] Invoked command in '/home/tony/Gazebo/build/mycobot_moveit2_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_moveit2_config -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/install/mycobot_moveit2_config
+[0.888s] Invoking command in '/home/tony/Gazebo/build/mycobot_moveit2_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_moveit2_config -- -j16 -l16
+[0.932s] Invoked command in '/home/tony/Gazebo/build/mycobot_moveit2_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_moveit2_config -- -j16 -l16
+[0.933s] Invoking command in '/home/tony/Gazebo/build/mycobot_moveit2_config': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_moveit2_config
+[0.940s] -- Install configuration: ""
+[0.940s] -- Execute custom install script
+[0.941s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/launch/ros2_controllers.launch.py
+[0.948s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/config/mycobot_280/ros2_controllers.yaml
+[0.956s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/config/mycobot_280/ros2_controllers_template.yaml
+[0.964s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/ament_index/resource_index/package_run_dependencies/mycobot_moveit2_config
+[0.970s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/ament_index/resource_index/parent_prefix_path/mycobot_moveit2_config
+[0.978s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/environment/ament_prefix_path.sh
+[0.986s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/environment/ament_prefix_path.dsv
+[0.993s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/environment/path.sh
+[1.001s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/environment/path.dsv
+[1.010s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/local_setup.bash
+[1.018s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/local_setup.sh
+[1.031s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/local_setup.zsh
+[1.043s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/local_setup.dsv
+[1.051s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.dsv
+[1.059s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/ament_index/resource_index/packages/mycobot_moveit2_config
+[1.067s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/cmake/mycobot_moveit2_configConfig.cmake
+[1.076s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/cmake/mycobot_moveit2_configConfig-version.cmake
+[1.084s] -- Symlinking: /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/package.xml
+[1.093s] Invoked command in '/home/tony/Gazebo/build/mycobot_moveit2_config' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_moveit2_config

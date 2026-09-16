@@ -1,0 +1,84 @@
+[0.015s] Invoking command in '/home/tony/Gazebo/build/mycobot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/install/mycobot_description
+[0.113s] -- The C compiler identification is GNU 13.3.0
+[0.200s] -- The CXX compiler identification is GNU 13.3.0
+[0.219s] -- Detecting C compiler ABI info
+[0.301s] -- Detecting C compiler ABI info - done
+[0.312s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.312s] -- Detecting C compile features
+[0.312s] -- Detecting C compile features - done
+[0.322s] -- Detecting CXX compiler ABI info
+[0.428s] -- Detecting CXX compiler ABI info - done
+[0.439s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.439s] -- Detecting CXX compile features
+[0.440s] -- Detecting CXX compile features - done
+[0.451s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.603s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.697s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.745s] -- Found urdf_tutorial: 1.1.0 (/opt/ros/jazzy/share/urdf_tutorial/cmake)
+[0.748s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[0.873s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.873s] -- Configured 'flake8' exclude dirs and/or files: 
+[0.874s] -- Added test 'lint_cmake' to check CMake code style
+[0.875s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.878s] -- Added test 'xmllint' to check XML markup files
+[0.880s] -- Configuring done (0.9s)
+[0.883s] -- Generating done (0.0s)
+[0.885s] -- Build files have been written to: /home/tony/Gazebo/build/mycobot_description
+[0.889s] Invoked command in '/home/tony/Gazebo/build/mycobot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/Gazebo/src/mycobot_ros2/mycobot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tony/Gazebo/install/mycobot_description
+[0.890s] Invoking command in '/home/tony/Gazebo/build/mycobot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_description -- -j16 -l16
+[0.937s] Invoked command in '/home/tony/Gazebo/build/mycobot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/Gazebo/build/mycobot_description -- -j16 -l16
+[0.938s] Invoking command in '/home/tony/Gazebo/build/mycobot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_description
+[0.945s] -- Install configuration: ""
+[0.946s] -- Execute custom install script
+[0.946s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/launch/robot_description.launch.py
+[0.954s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/adaptive_gripper/visual/gripper_base.dae
+[0.962s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/adaptive_gripper/visual/gripper_left1.dae
+[0.969s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/adaptive_gripper/visual/gripper_left2.dae
+[0.976s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/adaptive_gripper/visual/gripper_left3.dae
+[0.983s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/adaptive_gripper/visual/gripper_right1.dae
+[0.991s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/adaptive_gripper/visual/gripper_right2.dae
+[0.999s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/adaptive_gripper/visual/gripper_right3.dae
+[1.007s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/d435/visual/d435.stl
+[1.016s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/g_shape_base_v2_0/visual/base_link.dae
+[1.024s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link1.dae
+[1.037s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link1.png
+[1.045s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link2.dae
+[1.056s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link2.png
+[1.065s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link3.dae
+[1.073s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link3.png
+[1.082s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link4.dae
+[1.090s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link4.png
+[1.098s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link5.dae
+[1.105s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link5.png
+[1.117s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link6.dae
+[1.127s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link6.png
+[1.140s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link7.dae
+[1.151s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/link7.png
+[1.161s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/meshes/mycobot_280/visual/suit_env.dae
+[1.171s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/control/gazebo_sim_ros2_control.urdf.xacro
+[1.178s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/control/mycobot_280_ros2_control.urdf.xacro
+[1.185s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/mech/adaptive_gripper.urdf.xacro
+[1.192s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/mech/g_shape_base_v2_0.urdf.xacro
+[1.199s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/mech/mycobot_280_arm.urdf.xacro
+[1.208s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/mech/set.png
+[1.218s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/mycobot280_rviz.png
+[1.226s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/robots/mycobot_280.urdf.xacro
+[1.235s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/sensors/intel_rgbd_cam_d435.urdf.xacro
+[1.243s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/rviz/default.rviz
+[1.253s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/rviz/mycobot_280_description.rviz
+[1.261s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/ament_index/resource_index/package_run_dependencies/mycobot_description
+[1.268s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/ament_index/resource_index/parent_prefix_path/mycobot_description
+[1.276s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/environment/ament_prefix_path.sh
+[1.284s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/environment/ament_prefix_path.dsv
+[1.291s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/environment/path.sh
+[1.299s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/environment/path.dsv
+[1.307s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/local_setup.bash
+[1.320s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/local_setup.sh
+[1.328s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/local_setup.zsh
+[1.338s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/local_setup.dsv
+[1.345s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/package.dsv
+[1.353s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/ament_index/resource_index/packages/mycobot_description
+[1.360s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/cmake/mycobot_descriptionConfig.cmake
+[1.368s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/cmake/mycobot_descriptionConfig-version.cmake
+[1.375s] -- Symlinking: /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/package.xml
+[1.383s] Invoked command in '/home/tony/Gazebo/build/mycobot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/Gazebo/build/mycobot_description

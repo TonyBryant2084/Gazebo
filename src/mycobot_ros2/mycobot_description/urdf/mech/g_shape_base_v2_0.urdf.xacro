@@ -1,58 +1,28 @@
 <?xml version="1.0" ?>
 
-<!--
-    声明这是一个 Xacro 文件。
-    Xacro 是 ROS 中用于生成 URDF 的 XML 宏语言，
-    可以通过 macro、参数、变量等方式复用机器人模型代码。
--->
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
 
     <!--
         定义一个名为 g_shape_base 的 Xacro 宏。
 
         参数：
-        1. base_link：基础 Link 的名称，例如 base_link
-        2. prefix：Link 名称前缀，例如 robot1_、robot2_
-
-        调用这个宏后，会生成：
-            <link name="${prefix}${base_link}">
-        例如：
-            prefix = robot1_
-            base_link = base_link
-
-        最终 Link 名称就是：
-            robot1_base_link
+        1. base_link：基础 Link 的名称
+        2. prefix：Link 名称前缀
     -->
     <xacro:macro name="g_shape_base" params="base_link prefix">
 
-        <!--
-            定义机器人底座的 Link。
-
-            ${prefix}${base_link}
-            表示把 prefix 和 base_link 拼接起来。
-
-            例如：
-                prefix = ""
-                base_link = base_link
-                -> base_link
-
-            或：
-                prefix = robot1_
-                base_link = base_link
-                -> robot1_base_link
-        -->
+        <!-- 定义机器人底座的 Link -->
         <link name="${prefix}${base_link}">
 
             <!--
-                inertial：定义这个 Link 的动力学 / 惯性属性。
+                1. inertial：定义这个 Link 的动力学 / 惯性属性。
 
                 Gazebo 进行物理仿真时，需要知道物体的：
                 - 质量
                 - 质心位置
                 - 惯性矩阵
 
-                如果机器人需要在 Gazebo 中进行真实物理运动，
-                inertial 信息非常重要。
+                如果机器人需要在 Gazebo 中进行真实物理运动，inertial 信息非常重要。
             -->
             <inertial>
 
@@ -70,18 +40,14 @@
                 <!--
                     定义这个 Link 的质量。
 
-                    单位：
-                        kg
+                    单位：kg
 
-                    这里表示底座质量为：
-                        0.33 kg
+                    这里表示底座质量为：0.33 kg
                 -->
                 <mass value="0.33"/>
 
                 <!--
-                    定义惯性张量。
-
-                    惯性张量描述物体对于绕不同坐标轴旋转的惯性。
+                    定义惯性张量: 描述物体对于绕不同坐标轴旋转的惯性。
 
                     矩阵形式为：
 
@@ -94,31 +60,24 @@
                         iyy：绕 Y 轴的转动惯量
                         izz：绕 Z 轴的转动惯量
 
-                        ixy、ixz、iyz：
-                        表示不同坐标轴之间的惯性耦合项。
+                        ixy、ixz、iyz：表示不同坐标轴之间的惯性耦合项。
 
-                    单位通常为：
-                        kg·m²
+                    单位通常为：kg·m²
                 -->
                 <inertia
                     ixx="0.000784" ixy="0.0" ixz="0.0"
-                    iyy="0.000867" iyz="0.0"
-                    izz="0.001598"/>
+                    iyy="0.000867" iyz="0.0" izz="0.001598"/>
 
             </inertial>
 
             <!--
-                visual：定义机器人在 RViz / Gazebo 中
-                "看起来是什么样子"。
+                2. visual：定义机器人在 RViz / Gazebo 中 "看起来是什么样子"。
 
-                visual 主要负责显示模型，
-                不直接决定物理碰撞。
+                visual 主要负责显示模型，不直接决定物理碰撞。
             -->
             <visual>
 
-                <!--
-                    geometry：定义可视化几何形状。
-                -->
+                <!-- geometry：定义可视化几何形状 -->
                 <geometry>
 
                     <!--
@@ -176,7 +135,7 @@
             </visual>
 
             <!--
-                collision：定义这个 Link 用于物理碰撞检测的几何模型。
+                3. collision：定义这个 Link 用于物理碰撞检测的几何模型。
 
                 它和 visual 是分开的：
 
@@ -233,7 +192,7 @@
         </link>
 
         <!--
-            gazebo：Gazebo 专用配置。
+            4. gazebo：Gazebo 专用配置。
 
             reference="${prefix}${base_link}"
             表示：
