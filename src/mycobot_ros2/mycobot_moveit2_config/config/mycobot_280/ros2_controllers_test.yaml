@@ -1,0 +1,84 @@
+# 该配置文件用于在启动 controller_manager（ros2_control_node）时，向 controller_manager 提供信息：要管理哪些控制器插件，以及每个控制器插件对应的参数(不是启动 controller_manager 的那一刻就自动启动所有控制器文件，只是告诉它「有哪些控制器、它们的参数是什么」，只是注册信息存入内存控制器本身此时仍是未加载、未激活状态)
+
+# controller_manager: ROS2 控制器管理器节点，ros2_control 的核心，负责加载 / 卸载控制器、调度硬件接口
+controller_manager:
+
+  # ros__parameters: ROS2 参数块，所有参数都放在这个命名空间下
+  ros__parameters:
+
+    # update_rate: 控制器管理器更新频率，单位 Hz
+    update_rate: 100  # 100Hz，代表每 0.01s 跑一次控制循环，读取硬件状态、下发控制指令
+
+    # arm_controller: 机械臂轨迹控制器(自定义名字，后面 launch 文件要引用这个名字)
+    arm_controller: 
+      # type 指明：controller_manager 要加载哪一个控制器插件
+      # 格式: type: 插件所在的ROS2包名 / 包里的控制器插件名称 
+      # JointTrajectoryController: 接收关节空间多点时间轨迹，自动插值并同步驱动多关节运动，同时监控跟踪误差，对外提供 FollowJointTrajectory 动作服务，专门用来执行 MoveIt2 输出的机械臂轨迹
+      type: joint_trajectory_controller/JointTrajectoryController 
+
+    # gripper_action_controller: 夹爪动作控制器(自定义名字，后面 launch 文件要引用这个名字)
+    gripper_action_controller: 
+      # type 指明：controller_manager 要加载哪一个控制器插件
+      # 格式: type: 插件所在的ROS2包名 / 包里的控制器插件名称 
+      # GripperActionController: 接收夹爪目标位置指令，监测堵转与位置误差，对外提供 GripperCommand 动作服务，专门用来控制单自由度夹爪开合
+      type: position_controllers/GripperActionController
+
+    # joint_state_broadcaster: 关节状态广播器(自定义名字，后面 launch 文件要引用这个名字)
+    joint_state_broadcaster: 
+      # type 指明：controller_manager 要加载哪一个控制器插件
+      # 格式: type: 插件所在的ROS2包名 / 包里的控制器插件名称 
+      # JointStateBroadcaster: 读取硬件反馈的各关节位置等状态，打包发布 /joint_states 话题，供RViz、MoveIt2读取机器人关节实时姿态
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+# 机械臂轨迹控制器
+arm_controller:
+  ros_parameters:
+    # 1. 受控关节名称列表，名字必须和 URDF/Xacro 内关节名完全一致
+    joints:          
+    - link1_to_link2        # 机械臂第1关节
+    - link2_to_link3        # 机械臂第2关节
+    - link3_to_link4        # 机械臂第3关节
+    - link4_to_link5        # 机械臂第4关节
+    - link5_to_link6        # 机械臂第5关节
+    - link6_to_link6_flange # 机械臂第6关节（法兰关节）
+    
+    # 2. 指令输出接口: 控制器 ——(发送命令)——> 硬件
+    command_interfaces: 
+    - position # 下发目标关节位置
+
+    # 3. 状态反馈接口: 硬件 ——(发送命令)——> 控制器
+    state_interfaces: 
+    - position # 从硬件读取当前实际位置
+
+    # 4. 开环 / 闭环 控制
+    open_loop_control: false
+    # 1) 开环 (true)：只管发目标指令，不读取、不校验关节实际位置；卡住也判定运动成功。
+    # 2) 闭环 (false)：下发指令同时读取关节真实位置，比对误差，超差就终止轨迹。
+
+    # 5. 允许轨迹使用速度积分生成位置，MoveIt 生成带速度的轨迹必须开启
+    allow_integration_in_goal_trajectories: true
+    # 1) true: 读取轨迹里的速度信息，运动平滑
+    # 2) false: 无视轨迹里的速度，只按位置线性插，动作生硬抖动 
+
+    # 6. 是否允许轨迹结束时关节保留速度
+    allow_nonzero_velocity_at_trajectory_end: true
+    # 1) true：一段轨迹跑完可以不停，直接接下一段连续运动
+    # 2) false：每段轨迹终点必须刹停，速度归零，一段一动
+
+# 夹爪动作控制器
+gripper_action_controller:
+  ros_parameters: 
+    # 1. 夹爪对应的关节名称，必须和URDF中夹爪joint名称保持一致
+    joint: gripper_controller 
+    # 2. 动作状态监控频率，单位 Hz，多久检查一次夹爪动作执行情况
+    action_monitor_rate: 20.0
+    # 3. 目标位置容差，单位 rad(弧度)，实际位置和目标差距小于该值，就认为夹爪到位
+    goal_tolerance: 0.01
+    # 4. 夹爪最大输出力矩，单位 N·m(牛米)，限制最大夹紧力，避免夹坏物体
+    max_effort: 100.0
+    # 5. 是否允许堵转；false=检测到堵转就判定任务失败（无单位，布尔开关）
+    allow_stalling: false 
+    # 6. 堵转判定速度阈值，单位 rad/s(弧度/秒)，关节速度低于这个值，判定疑似卡住
+    stall_velocity_threshold: 0.001  
+    # 7. 堵转超时时间，单位 s(秒)：持续低于速度阈值满1秒，确认堵转，终止动作
+    stall_timeout: 1.0

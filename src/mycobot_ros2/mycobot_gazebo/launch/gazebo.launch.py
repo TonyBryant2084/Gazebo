@@ -345,12 +345,17 @@ def generate_launch_description():
         executable="create",
         # 3. 命令
         arguments=[
+            # 告诉 "create" 程序不要直接从文件读取机器人模型，而是从 robot_state_publisher 发布的 /robot_description 这个话题来读取
             '-topic', '/robot_description',
+            # 把创建出来的机器人模型命名为什么
             '-name', robot_name,
+            # 如果这个名字已经存在，允许 Gazebo 自动换一个名字
             '-allow_renaming', 'true',
+            # 放在 Gazebo 世界坐标系的哪个位置
             '-x', robot_x,
             '-y', robot_y,
             '-z', robot_z,
+            # 以什么样的位姿摆放
             '-R', robot_roll,
             '-P', robot_pitch,
             '-Y', robot_yaw
@@ -399,14 +404,14 @@ def generate_launch_description():
 
     # 1. Launch File
     ld.add_action(action_robot_description)
-    ld.add_action(action_ros2_controllers)
+    # ld.add_action(action_ros2_controllers)
     # ld.add_action(action_append_environment_variable)
     ld.add_action(action_gazebo)
 
     # 2. Node
     ld.add_action(action_parameter_bridge)
     # ld.add_action(action_image_bridge)
-    # ld.add_action(action_spawner)
+    ld.add_action(action_spawner)
 
     # 返回完整的 LaunchDescription
     return ld
