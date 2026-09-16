@@ -406,7 +406,7 @@ def generate_launch_description():
     # 2. Node
     ld.add_action(action_parameter_bridge)
     # ld.add_action(action_image_bridge)
-    ld.add_action(action_spawner)
+    # ld.add_action(action_spawner)
 
     # 返回完整的 LaunchDescription
     return ld

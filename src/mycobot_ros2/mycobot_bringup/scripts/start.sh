@@ -24,7 +24,7 @@ echo "Launching Gazebo simulation..."
 # 3. robot
 # 注意：在只启动 robot_description.launch..py 时，由于没有启动 Gazebo，没有外部时间(topic: /clock)，所以不要使用 use_sim_time(use_sim_time = flase)， 让 rsp, jsp, rviz2 听系统时间
 ros2 launch mycobot_gazebo gazebo.launch.py \
-    use_sim_time:=false \
+    use_sim_time:=true \
     use_rsp:=true \
     use_jsp:=true \
     use_rviz2:=true \
