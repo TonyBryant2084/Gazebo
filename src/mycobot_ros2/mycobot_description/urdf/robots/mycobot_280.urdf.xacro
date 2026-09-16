@@ -1,64 +1,173 @@
 <?xml version="1.0"?>
+
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mycobot_280">
+
+    <!-- 外部入口参数，可以通过 xacro 命令行进行传参，覆盖掉默认值 -->
+
+    <!-- 1. 机器人名称 -->
+
     <xacro:arg name="robot_name" default="mycobot_280"/>
+
+    <!-- 
+        2. 是否添加 world 根连杆
+
+            1) RViz：TF 树根是 world，RViz 可以直接以 world 作为参考坐标系查看机械臂
+
+            2) Gazebo：spawn 模型时，模型内部这个 world 连杆会对齐到 Gazebo 全局世界原点。因为 virtual_joint 是 fixed，底座被锁死，不会受重力下落
+    -->
+
     <xacro:arg name="add_world" default="true"/>
+
+    <!-- 3. 机械臂底座连杆名称 -->
+
     <xacro:arg name="base_link" default="base_link"/>
+
+    <!-- 4. 机械臂底座类型，可以选择 g_shape 等不同底座类型 -->
+
     <xacro:arg name="base_type" default="g_shape"/>
+
+    <!-- 5. 机械臂末端法兰连杆的名称，用于连接末端执行器(夹爪等) -->
+
     <xacro:arg name="flange_link" default="link6_flange"/>
+
+    <!-- 6. 夹爪类型，用于选择加载不同的末端执行器 -->
+
     <xacro:arg name="gripper_type" default="adaptive_gripper"/>
+
+    <!-- 7. 机器人名称前缀，防止部署多机器人导致名字混乱 -->
+
     <xacro:arg name="prefix" default=""/>
+
+    <!-- 8. 是否启用摄像头传感器 -->
+
     <xacro:arg name="use_camera" default="false"/>
-    <xacro:arg name="use_gazebo" default="false"/>
+
+    <!-- 9. 是否启用 Gazebo 仿真 -->
+
+    <xacro:arg name="use_gazebo" default="true"/>
+
+    <!-- 10. 是否启用加爪模型 -->
+
     <xacro:arg name="use_gripper" default="true"/>
 
+    <!-- 1. 添加 world 根连杆
+        并且添加 底座 和 world 根连杆之间的关节 
+    -->
+
     <xacro:if value="$(arg add_world)">
-      <link name="world"/>
-      <joint name="$(arg prefix)virtual_joint" type="fixed">
-          <parent link="world"/>
-          <child link="$(arg prefix)$(arg base_link)"/>
-          <origin xyz="0 0 0" rpy="0 0 0"/>
-      </joint>
+
+        <!-- link: world 根连杆 -->
+
+        <link name="world"/>
+
+        <!-- joint: world, base_link -->
+
+        <joint name="$(arg prefix)virtual_joint" type="fixed">
+
+            <parent link="world"/>
+
+            <child link="$(arg prefix)$(arg base_link)"/>
+
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+
+        </joint>
+
     </xacro:if>
+
+    <!-- 2. 添加 base_link -->
+
+    <!-- xacro 内部变量: 保存 base_link 的类型 -->
 
     <xacro:property name="current_base" value="$(arg base_type)"/>
+
+    <!-- 如果 base_link 是 g_shape 类型，则添加 G型底座 -->
+
     <xacro:if value="${current_base == 'g_shape'}">
+
+        <!-- 引入 G 型底座的 xacro 文件 -->
+
         <xacro:include filename="$(find mycobot_description)/urdf/mech/g_shape_base_v2_0.urdf.xacro"/>
+
+        <!-- 调用宏文件，生成 G型底座 -->
+
         <xacro:g_shape_base
             base_link="$(arg base_link)"
-            prefix="$(arg prefix)"/>
+            prefix="$(arg prefix)"
+        />
+
     </xacro:if>
+
+    <!-- 3. 引入 mycobot_280 机械臂主体 xacro 文件  -->
 
     <xacro:include filename="$(find mycobot_description)/urdf/mech/mycobot_280_arm.urdf.xacro"/>
+
+    <!-- 调用宏文件，生成6轴机械臂连杆与转动关节 -->
+
     <xacro:mycobot_280_arm
-      base_link="$(arg base_link)"
-      flange_link="$(arg flange_link)"
-      prefix="$(arg prefix)">
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+        base_link="$(arg base_link)"
+        flange_link="$(arg flange_link)"
+        prefix="$(arg prefix)"
+    >
+
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+
     </xacro:mycobot_280_arm>
 
+    <!-- 4. 添加末端夹爪 -->
+
     <xacro:if value="$(arg use_gripper)">
-        <xacro:property name="current_gripper" value="$(arg gripper_type)"/>
+
+        <xacro:property
+            name="current_gripper"
+            value="$(arg gripper_type)"
+        />
+
         <xacro:if value="${current_gripper == 'adaptive_gripper'}">
+
+            <!-- 引入自适应夹爪模型 -->
+
             <xacro:include filename="$(find mycobot_description)/urdf/mech/adaptive_gripper.urdf.xacro"/>
+
+            <!-- 调用宏文件，挂载到法兰连杆 -->
+
             <xacro:adaptive_gripper
                 parent="$(arg flange_link)"
-                prefix="$(arg prefix)">
-                <origin xyz="0 0 0.034" rpy="1.579 0 0"/>
+                prefix="$(arg prefix)"
+            >
+
+                <origin xyz="0.0 0.0 0.034" rpy="1.579 0.0 0.0"/>
+
             </xacro:adaptive_gripper>
+
         </xacro:if>
+
     </xacro:if>
 
-    <xacro:include filename="$(find mycobot_description)/urdf/control/gazebo_sim_ros2_control.urdf.xacro" />
+    <!-- 5. 引入 Gazebo ros2_control 仿真插件配置文件 -->
+
+    <xacro:include filename="$(find mycobot_description)/urdf/control/gazebo_sim_ros2_control.urdf.xacro"/>
+
+    <!-- 调用 Gazebo ros2_control 宏文件，根据 use_gazebo 开关启用 仿真控制器 -->
+
     <xacro:load_gazebo_sim_ros2_control_plugin
-      robot_name="$(arg robot_name)"
-      use_gazebo="$(arg use_gazebo)"/>
+        robot_name="$(arg robot_name)"
+        use_gazebo="$(arg use_gazebo)"
+    />
+
+    <!-- 6. 引入 mycobot280 ros2_control 硬件接口、关节控制器配置 -->
 
     <xacro:include filename="$(find mycobot_description)/urdf/control/mycobot_280_ros2_control.urdf.xacro" />
-    <xacro:mycobot_ros2_control
-      prefix="$(arg prefix)"
-      flange_link="$(arg flange_link)"
-      use_gazebo="$(arg use_gazebo)"/>
 
-    <xacro:include filename="$(find mycobot_description)/urdf/sensors/intel_rgbd_cam_d435.urdf.xacro"/>
+    <!-- 调用 mycobot280 ros2_control 宏文件，配置关节控制器、状态发布器 -->
+
+    <xacro:mycobot_ros2_control
+        prefix="$(arg prefix)"
+        flange_link="$(arg flange_link)"
+        use_gazebo="$(arg use_gazebo)"
+    />
+
+    <!-- 7. 引入D435i深度相机模型文件，仅include，是否启用由use_camera控制（当前代码未做相机if判断） -->
+
+    <!-- <xacro:include filename="$(find mycobot_description)/urdf/sensors/intel_rgbd_cam_d435.urdf.xacro"/> -->
 
 </robot>

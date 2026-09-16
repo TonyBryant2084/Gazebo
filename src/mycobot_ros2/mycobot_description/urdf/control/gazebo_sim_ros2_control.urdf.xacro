@@ -1,11 +1,24 @@
 <?xml version="1.0" ?>
+<!-- 机器人模型根标签，声明xacro命名空间 -->
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
+    <!-- 定义宏：加载Gazebo仿真ros2_control插件 -->
+    <!-- 参数：
+         robot_name: 机器人名称，用于定位控制器yaml配置文件
+         use_gazebo: 布尔开关，true才加载Gazebo插件，RViz离线可视化时不加载
+    -->
     <xacro:macro name="load_gazebo_sim_ros2_control_plugin" params="robot_name use_gazebo">
+        <!-- 条件判断：仅当use_gazebo为true时，才生成Gazebo插件代码 -->
         <xacro:if value="${use_gazebo}">
+            <!-- Gazebo专属标签，内部配置Gazebo仿真插件 -->
             <gazebo>
+                <!-- gz_ros2_control插件：在Gazebo中对接ros2_control控制器框架 -->
+                <!-- filename：插件库文件名；name：插件类名 -->
                 <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+                    <!-- 控制器参数文件路径，ros2_control从中读取关节控制器配置 -->
                     <parameters>$(find mycobot_moveit2_config)/config/${robot_name}/ros2_controllers.yaml</parameters>
+                    <!-- ROS2话题重映射 -->
                     <ros>
+                        <!-- 重映射：controller_manager读取的robot_description，使用全局/robot_description -->
                         <remapping>/controller_manager/robot_description:=/robot_description</remapping>
                     </ros>
                 </plugin>

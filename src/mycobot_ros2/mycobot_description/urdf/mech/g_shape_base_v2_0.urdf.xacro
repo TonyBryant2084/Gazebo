@@ -1,37 +1,309 @@
 <?xml version="1.0" ?>
+
+<!--
+    声明这是一个 Xacro 文件。
+    Xacro 是 ROS 中用于生成 URDF 的 XML 宏语言，
+    可以通过 macro、参数、变量等方式复用机器人模型代码。
+-->
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <!--
+        定义一个名为 g_shape_base 的 Xacro 宏。
+
+        参数：
+        1. base_link：基础 Link 的名称，例如 base_link
+        2. prefix：Link 名称前缀，例如 robot1_、robot2_
+
+        调用这个宏后，会生成：
+            <link name="${prefix}${base_link}">
+        例如：
+            prefix = robot1_
+            base_link = base_link
+
+        最终 Link 名称就是：
+            robot1_base_link
+    -->
     <xacro:macro name="g_shape_base" params="base_link prefix">
+
+        <!--
+            定义机器人底座的 Link。
+
+            ${prefix}${base_link}
+            表示把 prefix 和 base_link 拼接起来。
+
+            例如：
+                prefix = ""
+                base_link = base_link
+                -> base_link
+
+            或：
+                prefix = robot1_
+                base_link = base_link
+                -> robot1_base_link
+        -->
         <link name="${prefix}${base_link}">
+
+            <!--
+                inertial：定义这个 Link 的动力学 / 惯性属性。
+
+                Gazebo 进行物理仿真时，需要知道物体的：
+                - 质量
+                - 质心位置
+                - 惯性矩阵
+
+                如果机器人需要在 Gazebo 中进行真实物理运动，
+                inertial 信息非常重要。
+            -->
             <inertial>
+
+                <!--
+                    定义惯性坐标系相对于 Link 坐标系的位置和姿态。
+
+                    xyz="0 0 0.0"
+                    表示惯性参考点位于 Link 原点。
+
+                    rpy="0 0 0"
+                    表示惯性坐标系没有旋转。
+                -->
                 <origin xyz="0 0 0.0" rpy="0 0 0"/>
+
+                <!--
+                    定义这个 Link 的质量。
+
+                    单位：
+                        kg
+
+                    这里表示底座质量为：
+                        0.33 kg
+                -->
                 <mass value="0.33"/>
+
+                <!--
+                    定义惯性张量。
+
+                    惯性张量描述物体对于绕不同坐标轴旋转的惯性。
+
+                    矩阵形式为：
+
+                        | ixx  ixy  ixz |
+                        | ixy  iyy  iyz |
+                        | ixz  iyz  izz |
+
+                    其中：
+                        ixx：绕 X 轴的转动惯量
+                        iyy：绕 Y 轴的转动惯量
+                        izz：绕 Z 轴的转动惯量
+
+                        ixy、ixz、iyz：
+                        表示不同坐标轴之间的惯性耦合项。
+
+                    单位通常为：
+                        kg·m²
+                -->
                 <inertia
                     ixx="0.000784" ixy="0.0" ixz="0.0"
                     iyy="0.000867" iyz="0.0"
                     izz="0.001598"/>
+
             </inertial>
+
+            <!--
+                visual：定义机器人在 RViz / Gazebo 中
+                "看起来是什么样子"。
+
+                visual 主要负责显示模型，
+                不直接决定物理碰撞。
+            -->
             <visual>
+
+                <!--
+                    geometry：定义可视化几何形状。
+                -->
                 <geometry>
-                    <mesh filename="file://$(find mycobot_description)/meshes/g_shape_base_v2_0/visual/base_link.dae"/>
+
+                    <!--
+                        mesh：使用外部网格模型作为底座的视觉模型。
+
+                        filename：
+                        指定 mesh 文件的位置。
+
+                        file://
+                        表示使用文件系统中的本地文件。
+
+                        $(find mycobot_description)
+                        表示查找 ROS 2/ROS 中
+                        mycobot_description 功能包的位置。
+
+                        最终找到：
+                            meshes/g_shape_base_v2_0/visual/base_link.dae
+
+                        .dae：
+                        COLLADA 格式的 3D 模型文件。
+
+                        注意：
+                        这里的 mesh 主要用于显示，
+                        下面 collision 才负责碰撞检测。
+                    -->
+                    <mesh
+                        filename="file://$(find mycobot_description)/meshes/g_shape_base_v2_0/visual/base_link.dae"/>
+
                 </geometry>
+
+                <!--
+                    设置 visual 模型相对于 Link 坐标系的位置和姿态。
+
+                    xyz="0.0 0 -0.03"
+                    表示：
+                        X：0
+                        Y：0
+                        Z：-0.03 m
+
+                    即视觉模型沿 Z 轴向下移动 3 cm。
+
+                    rpy="0 0 ${pi/2}"
+                    表示：
+                        Roll  = 0
+                        Pitch = 0
+                        Yaw   = π/2
+
+                    即绕 Z 轴旋转 90°。
+
+                    ${pi/2}
+                    是 Xacro 表达式，表示 π/2。
+                -->
                 <origin xyz="0.0 0 -0.03" rpy="0 0 ${pi/2}"/>
+
             </visual>
+
+            <!--
+                collision：定义这个 Link 用于物理碰撞检测的几何模型。
+
+                它和 visual 是分开的：
+
+                    visual
+                    -> 负责"看起来什么样"
+
+                    collision
+                    -> 负责"物理上碰到什么"
+
+                这里没有使用复杂的 DAE 网格，
+                而是使用简单的 Box 碰撞模型。
+
+                这样可以降低 Gazebo 物理计算的复杂度。
+            -->
             <collision>
+
+                <!--
+                    geometry：定义碰撞模型的几何形状。
+                -->
                 <geometry>
+
+                    <!--
+                        使用一个长方体作为碰撞模型。
+
+                        size="0.105 0.14 0.02"
+
+                        分别表示：
+                            X = 0.105 m
+                            Y = 0.14  m
+                            Z = 0.02  m
+
+                        即：
+                            10.5 cm × 14 cm × 2 cm
+                    -->
                     <box size="0.105 0.14 0.02"/>
+
                 </geometry>
+
+                <!--
+                    设置碰撞模型相对于 Link 坐标系的位置。
+
+                    xyz="0.0 0.0 -0.015"
+
+                    表示碰撞盒沿 Z 轴向下移动：
+                        0.015 m = 1.5 cm
+
+                    rpy="0 0 0"
+                    表示碰撞盒没有旋转。
+                -->
                 <origin xyz="0.0 0.0 -0.015" rpy="0 0 0"/>
+
             </collision>
+
         </link>
 
+        <!--
+            gazebo：Gazebo 专用配置。
+
+            reference="${prefix}${base_link}"
+            表示：
+
+            当前 Gazebo 配置作用于哪个 Link。
+
+            这里引用的就是前面创建的：
+                ${prefix}${base_link}
+
+            例如：
+                robot1_base_link
+        -->
         <gazebo reference="${prefix}${base_link}">
+
+            <!--
+                visual：
+                对 Gazebo 中这个 Link 的视觉显示进行额外配置。
+
+                注意：
+                这里不是重新定义 visual 几何模型，
+                而是在 Gazebo 中对已经存在的 visual
+                添加 Gazebo 专用属性。
+            -->
+
             <visual>
+
+                <!--
+                    material：设置 Gazebo 中模型的材质属性。
+                -->
                 <material>
+
+                    <!--
+                        。
+
+                        RGBA：
+                            R = 0.5
+                            G = 0.5
+                            B = 0.5
+                            A = 1
+
+                        即灰色，不透明。
+                    -->
                     <ambient>0.5 0.5 0.5 1</ambient>
+
+                    <!--
+                        diffuse：
+                        漫反射颜色。
+
+                        这里同样设置为灰色。
+                    -->
                     <diffuse>0.5 0.5 0.5 1</diffuse>
+
+                    <!--
+                        specular：
+                        镜面反射颜色。
+
+                        数值越明显，
+                        模型受到光照时的高光效果通常越明显。
+
+                        这里设置为：
+                            0.5 0.5 0.5 1
+                    -->
                     <specular>0.5 0.5 0.5 1</specular>
+
                 </material>
+
             </visual>
+
         </gazebo>
+
     </xacro:macro>
+
 </robot>
