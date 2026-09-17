@@ -1,7 +1,6 @@
 /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/launch/ros2_controllers.launch.py
 /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/config/mycobot_280/ros2_controllers.yaml
 /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/config/mycobot_280/ros2_controllers_template.yaml
-/home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/config/mycobot_280/ros2_controllers_test.yaml
 /home/tony/Gazebo/install/mycobot_moveit2_config/share/ament_index/resource_index/package_run_dependencies/mycobot_moveit2_config
 /home/tony/Gazebo/install/mycobot_moveit2_config/share/ament_index/resource_index/parent_prefix_path/mycobot_moveit2_config
 /home/tony/Gazebo/install/mycobot_moveit2_config/share/mycobot_moveit2_config/environment/ament_prefix_path.sh

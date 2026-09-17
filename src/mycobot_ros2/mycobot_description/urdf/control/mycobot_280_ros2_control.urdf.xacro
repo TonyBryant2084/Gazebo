@@ -1,106 +1,246 @@
 <?xml version="1.0" ?>
+
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
 
+    <!-- 定义 mycobot_ros2_control 宏，用于生成 ros2_control 配置 -->
     <xacro:macro name="mycobot_ros2_control" params="prefix flange_link use_gazebo">
+
+        <!-- 定义 ros2_control 硬件系统 -->
         <ros2_control name="RobotSystem" type="system">
+
+            <!-- 配置硬件接口 -->
             <hardware>
+
+                <!-- 使用 Gazebo 仿真时加载 Gazebo 硬件接口 -->
                 <xacro:if value="${use_gazebo}">
+
+                    <!-- 连接 ros2_control 与 Gazebo -->
                     <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+
                 </xacro:if>
+
             </hardware>
 
+            <!-- 1号关节，控制 link1 到 link2 -->
             <joint name="${prefix}link1_to_${prefix}link2">
+
+                <!-- 定义位置控制接口 -->
                 <command_interface name="position">
+
+                    <!-- 关节最小位置：-2.879793 rad -->
                     <param name="min">-2.879793</param>
+
+                    <!-- 关节最大位置：2.879793 rad -->
                     <param name="max">2.879793</param>
+
                 </command_interface>
+
+                <!-- 读取当前关节位置 -->
                 <state_interface name="position"/>
+
             </joint>
 
+            <!-- 2号关节，控制 link2 到 link3 -->
             <joint name="${prefix}link2_to_${prefix}link3">
+
+                <!-- 定义位置控制接口 -->
                 <command_interface name="position">
+
+                    <!-- 关节最小位置：-2.879793 rad -->
                     <param name="min">-2.879793</param>
+
+                    <!-- 关节最大位置：2.879793 rad -->
                     <param name="max">2.879793</param>
+
                 </command_interface>
+
+                <!-- 读取当前关节位置 -->
                 <state_interface name="position"/>
+
             </joint>
 
+            <!-- 3号关节，控制 link3 到 link4 -->
             <joint name="${prefix}link3_to_${prefix}link4">
+
+                <!-- 定义位置控制接口 -->
                 <command_interface name="position">
+
+                    <!-- 关节最小位置：-2.879793 rad -->
                     <param name="min">-2.879793</param>
+
+                    <!-- 关节最大位置：2.879793 rad -->
                     <param name="max">2.879793</param>
+
                 </command_interface>
+
+                <!-- 读取当前关节位置 -->
                 <state_interface name="position"/>
+
             </joint>
 
+            <!-- 4号关节，控制 link4 到 link5 -->
             <joint name="${prefix}link4_to_${prefix}link5">
+
+                <!-- 定义位置控制接口 -->
                 <command_interface name="position">
+
+                    <!-- 关节最小位置：-2.879793 rad -->
                     <param name="min">-2.879793</param>
+
+                    <!-- 关节最大位置：2.879793 rad -->
                     <param name="max">2.879793</param>
+
                 </command_interface>
+
+                <!-- 读取当前关节位置 -->
                 <state_interface name="position"/>
+
             </joint>
 
+            <!-- 5号关节，控制 link5 到 link6 -->
             <joint name="${prefix}link5_to_${prefix}link6">
+
+                <!-- 定义位置控制接口 -->
                 <command_interface name="position">
+
+                    <!-- 关节最小位置：-2.879793 rad -->
                     <param name="min">-2.879793</param>
+
+                    <!-- 关节最大位置：2.879793 rad -->
                     <param name="max">2.879793</param>
+
                 </command_interface>
+
+                <!-- 读取当前关节位置 -->
                 <state_interface name="position"/>
+
             </joint>
 
+            <!-- 6号关节，控制 link6 到末端法兰 -->
             <joint name="${prefix}link6_to_${prefix}${flange_link}">
+
+                <!-- 定义位置控制接口 -->
                 <command_interface name="position">
+
+                    <!-- 关节最小位置：-3.05 rad -->
                     <param name="min">-3.05</param>
+
+                    <!-- 关节最大位置：3.05 rad -->
                     <param name="max">3.05</param>
+
                 </command_interface>
+
+                <!-- 读取当前关节位置 -->
                 <state_interface name="position"/>
+
             </joint>
 
+            <!-- 主夹爪关节，用于控制夹爪开合 -->
             <joint name="${prefix}gripper_controller">
+
+                <!-- 定义位置控制接口 -->
                 <command_interface name="position">
+
+                    <!-- 夹爪最小位置：-0.7 rad -->
                     <param name="min">-0.7</param>
+
+                    <!-- 夹爪最大位置：0.15 rad -->
                     <param name="max">0.15</param>
+
                 </command_interface>
+
+                <!-- 读取当前夹爪位置 -->
                 <state_interface name="position"/>
+
+                <!-- 读取当前夹爪速度 -->
                 <state_interface name="velocity"/>
+
             </joint>
 
+            <!-- 左侧夹爪关节，跟随 gripper_controller -->
             <joint name="${prefix}gripper_base_to_${prefix}gripper_left2">
+
+                <!-- 跟随主夹爪关节 -->
                 <param name="mimic">gripper_controller</param>
+
+                <!-- 运动方向与主关节相同 -->
                 <param name="multiplier">1.0</param>
+
+                <!-- 读取当前关节位置 -->
                 <state_interface name="position"/>
+
+                <!-- 读取当前关节速度 -->
                 <state_interface name="velocity"/>
+
             </joint>
 
+            <!-- 左侧夹爪关节，跟随 gripper_controller -->
             <joint name="${prefix}gripper_left3_to_${prefix}gripper_left1">
+
+                <!-- 跟随主夹爪关节 -->
                 <param name="mimic">gripper_controller</param>
+
+                <!-- 运动方向与主关节相反 -->
                 <param name="multiplier">-1.0</param>
+
+                <!-- 读取当前关节位置 -->
                 <state_interface name="position"/>
+
+                <!-- 读取当前关节速度 -->
                 <state_interface name="velocity"/>
+
             </joint>
 
+            <!-- 右侧夹爪关节，跟随 gripper_controller -->
             <joint name="${prefix}gripper_base_to_${prefix}gripper_right3">
+
+                <!-- 跟随主夹爪关节 -->
                 <param name="mimic">gripper_controller</param>
+
+                <!-- 运动方向与主关节相反 -->
                 <param name="multiplier">-1.0</param>
+
+                <!-- 读取当前关节位置 -->
                 <state_interface name="position"/>
+
+                <!-- 读取当前关节速度 -->
                 <state_interface name="velocity"/>
+
             </joint>
 
+            <!-- 右侧夹爪关节，跟随 gripper_controller -->
             <joint name="${prefix}gripper_base_to_${prefix}gripper_right2">
+
+                <!-- 跟随主夹爪关节 -->
                 <param name="mimic">gripper_controller</param>
+
+                <!-- 读取当前关节位置 -->
                 <state_interface name="position"/>
+
+                <!-- 读取当前关节速度 -->
                 <state_interface name="velocity"/>
+
             </joint>
 
+            <!-- 右侧夹爪关节，跟随 gripper_controller -->
             <joint name="${prefix}gripper_right3_to_${prefix}gripper_right1">
+
+                <!-- 跟随主夹爪关节 -->
                 <param name="mimic">gripper_controller</param>
+
+                <!-- 运动方向与主关节相同 -->
                 <param name="multiplier">1.0</param>
+
+                <!-- 读取当前关节位置 -->
                 <state_interface name="position"/>
+
+                <!-- 读取当前关节速度 -->
                 <state_interface name="velocity"/>
+
             </joint>
 
         </ros2_control>
+
     </xacro:macro>
 
 </robot>
