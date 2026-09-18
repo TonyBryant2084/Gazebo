@@ -1,0 +1,1035 @@
+# Gazebo + ros2\_control 机械臂启动与控制完整流程
+
+本文梳理使用 **Gazebo Sim + `gz_ros2_control` + `ros2_control` + MoveIt 2** 仿真机械臂时，从机器人描述生成、Gazebo 创建机器人，到 `controller_manager`、`ResourceManager`、Hardware、Controller 最终建立控制链路的完整过程。
+
+***
+
+# 1. 整体架构
+
+机械臂仿真的核心可以分成四层：
+
+```text
+机器人描述层
+    │
+    │ /robot_description
+    ▼
+Gazebo 仿真层
+    │
+    │ GazeboSimROS2ControlPlugin
+    ▼
+ros2_control 控制层
+    │
+    ├── ResourceManager
+    │      └── Hardware / Joint / Interface
+    │
+    └── ControllerManager
+           └── Controller
+    │
+    ▼
+MoveIt 2 / ROS 2 控制节点
+```
+
+其中有两份非常重要的配置：
+
+```text
+<ros2_control>
+        │
+        └── 描述 Hardware / Joint / Interface
+
+ros2_controllers.yaml
+        │
+        └── 描述 Controller / Controller 参数
+```
+
+可以简单理解为：
+
+> **`<ros2_control>` 描述“机器人有什么控制资源”；`ros2_controllers.yaml` 描述“使用什么 Controller 来控制这些资源”。**
+
+***
+
+# 2. 第一步：生成并发布 `/robot_description`
+
+首先，Xacro 文件经过展开后生成完整的 URDF。
+
+例如：
+
+```text
+mycobot.urdf.xacro
+        │
+        │ xacro
+        ▼
+完整 URDF/XML
+```
+
+然后由 `robot_state_publisher` 获取机器人描述，并发布：
+
+```text
+/robot_description
+```
+
+因此：
+
+```text
+Xacro
+  │
+  ▼
+URDF
+  │
+  ▼
+robot_state_publisher
+  │
+  │ publish
+  ▼
+/robot_description
+```
+
+`/robot_description` 中包含完整的机器人描述，例如：
+
+```xml
+<robot>
+
+    <link .../>
+
+    <joint .../>
+
+    <visual .../>
+
+    <collision .../>
+
+    <inertial .../>
+
+    <gazebo>
+        <plugin .../>
+    </gazebo>
+
+    <ros2_control>
+        ...
+    </ros2_control>
+
+</robot>
+```
+
+因此 `/robot_description` 不只是机械臂的外观模型，它还可能包含 Gazebo 插件和 `ros2_control` 配置。
+
+***
+
+# 3. 第二步：`ros_gz_sim create` 从 `/robot_description` 获取机器人
+
+启动 Gazebo 后，需要将机器人模型插入当前仿真 World。
+
+通常使用：
+
+```text
+ros_gz_sim create
+```
+
+例如：
+
+```bash
+ros2 run ros_gz_sim create \
+    -topic /robot_description \
+    -name mycobot_280 \
+    -x 0 \
+    -y 0 \
+    -z 0.03
+```
+
+其中：
+
+```text
+-topic /robot_description
+```
+
+表示：
+
+> 从 `/robot_description` 获取机器人描述。
+
+而：
+
+```text
+-name
+-x
+-y
+-z
+-roll
+-pitch
+-yaw
+```
+
+等参数用于指定机器人名称以及初始位置和姿态。
+
+整个过程：
+
+```text
+/robot_description
+        │
+        │ URDF/XML
+        ▼
+ros_gz_sim create
+        │
+        │ 创建请求
+        ▼
+Gazebo
+```
+
+***
+
+# 4. 第三步：Gazebo 根据 URDF 创建机器人 Model
+
+Gazebo 收到机器人描述后，会解析 URDF。
+
+其中包括：
+
+```xml
+<link>
+<joint>
+<visual>
+<collision>
+<inertial>
+```
+
+这些内容用于构建 Gazebo 中的机器人 Model。
+
+例如：
+
+```text
+URDF
+ │
+ ├── link
+ │     └── Gazebo Link
+ │
+ ├── joint
+ │     └── Gazebo Joint
+ │
+ ├── visual
+ │     └── 可视化模型
+ │
+ ├── collision
+ │     └── 碰撞模型
+ │
+ └── inertial
+       └── 质量 / 惯性
+```
+
+因此：
+
+> **Gazebo 根据 URDF 的结构创建机器人在仿真世界中的物理模型。**
+
+***
+
+# 5. 第四步：Gazebo 发现并加载 `gz_ros2_control` 插件
+
+如果 URDF/Xacro 中存在：
+
+```xml
+<gazebo>
+
+    <plugin
+        filename="gz_ros2_control-system"
+        name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+
+        ...
+
+    </plugin>
+
+</gazebo>
+```
+
+Gazebo 会根据插件配置加载：
+
+```text
+gz_ros2_control-system
+```
+
+然后实例化：
+
+```text
+gz_ros2_control::GazeboSimROS2ControlPlugin
+```
+
+这里需要区分两个概念：
+
+```text
+filename
+    │
+    └── 指定插件库
+
+name
+    │
+    └── 指定要实例化的插件类
+```
+
+因此：
+
+```text
+filename="gz_ros2_control-system"
+            │
+            ▼
+       加载插件库
+            │
+            ▼
+GazeboSimROS2ControlPlugin
+            │
+            ▼
+       实例化插件
+```
+
+***
+
+# 6. 第五步：`GazeboSimROS2ControlPlugin` 接入 ros2\_control
+
+`GazeboSimROS2ControlPlugin` 的作用不是直接充当机械臂 Controller。
+
+它的主要作用是：
+
+> **把 Gazebo 中的仿真机器人和 ROS 2 `ros2_control` 框架连接起来。**
+
+其结构可以理解为：
+
+```text
+Gazebo
+   │
+   │
+   ▼
+GazeboSimROS2ControlPlugin
+   │
+   │ 接入
+   ▼
+ros2_control
+```
+
+因此，后面的：
+
+```text
+ControllerManager
+ResourceManager
+Hardware
+Controller
+```
+
+才能和 Gazebo 中的机器人关节建立联系。
+
+***
+
+# 7. 第六步：Controller Manager
+
+`GazeboSimROS2ControlPlugin` 启动 ros2\_control 相关控制管理组件，其中核心组件之一就是：
+
+```text
+controller_manager
+```
+
+Controller Manager 的作用是：
+
+> **负责管理各种 Controller，并协调 Controller 与 Hardware Resource 之间的关系。**
+
+可以理解为：
+
+```text
+                  Controller Manager
+                         │
+             ┌───────────┴───────────┐
+             │                       │
+             ▼                       ▼
+       Controller               Resource Manager
+             │                       │
+             │                       ▼
+             │                  Hardware
+             │                       │
+             │                       ▼
+             │                   Interface
+             │
+             ▼
+      控制机器人关节
+```
+
+这里最重要的是：
+
+> **Controller Manager 并不直接等于 Hardware。**
+
+它负责管理 Controller，同时通过 Resource Manager 管理 Hardware Resource。
+
+***
+
+# 8. 第七步：Controller Manager 获取 Controller 配置
+
+Controller 的配置通常来自：
+
+```text
+ros2_controllers.yaml
+```
+
+例如：
+
+```yaml
+controller_manager:
+  ros__parameters:
+
+    update_rate: 100
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+```
+
+这份配置主要告诉 Controller Manager：
+
+```text
+需要哪些 Controller？
+        │
+        ├── joint_state_broadcaster
+        │
+        └── arm_controller
+
+每个 Controller 是什么类型？
+        │
+        ├── JointStateBroadcaster
+        │
+        └── JointTrajectoryController
+
+Controller Manager 的相关参数？
+        │
+        └── update_rate
+```
+
+因此：
+
+```text
+ros2_controllers.yaml
+        │
+        ▼
+Controller Manager
+        │
+        ├── joint_state_broadcaster
+        │
+        └── arm_controller
+```
+
+***
+
+# 9. 第八步：Controller Manager 获取 Hardware / Interface 配置
+
+Controller 需要知道：
+
+> “我要控制哪些关节？”
+
+> “这些关节有什么 Command Interface？”
+
+> “这些关节有什么 State Interface？”
+
+这些信息不是主要来自 `ros2_controllers.yaml`，而是来自机器人 URDF 中的：
+
+```xml
+<ros2_control>
+    ...
+</ros2_control>
+```
+
+例如：
+
+```xml
+<ros2_control
+    name="GazeboSystem"
+    type="system">
+
+    <hardware>
+        <plugin>
+            gz_ros2_control/GazeboSimSystem
+        </plugin>
+    </hardware>
+
+    <joint name="joint1">
+
+        <command_interface name="position"/>
+
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+
+    </joint>
+
+</ros2_control>
+```
+
+这里包含三类核心信息：
+
+```text
+Hardware
+   │
+   └── 使用什么 Hardware Plugin
+
+Joint
+   │
+   └── 有哪些机器人关节
+
+Interface
+   │
+   ├── Command Interface
+   │
+   └── State Interface
+```
+
+***
+
+# 10. 第九步：Resource Manager 解析 `<ros2_control>`
+
+Controller Manager 内部通过 Resource Manager 管理 Hardware Resource。
+
+整体关系：
+
+```text
+Controller Manager
+        │
+        ▼
+Resource Manager
+        │
+        │ 解析
+        ▼
+<ros2_control>
+        │
+        ├── hardware
+        │
+        ├── joint
+        │
+        ├── command_interface
+        │
+        └── state_interface
+```
+
+例如：
+
+```xml
+<hardware>
+    <plugin>
+        gz_ros2_control/GazeboSimSystem
+    </plugin>
+</hardware>
+```
+
+表示：
+
+> 使用 `GazeboSimSystem` 作为 ros2\_control 的 Hardware。
+
+而：
+
+```xml
+<joint name="joint1">
+
+    <command_interface name="position"/>
+
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+
+</joint>
+```
+
+表示：
+
+> `joint1` 提供 Position Command Interface，并提供 Position / Velocity State Interface。
+
+***
+
+# 11. 第十步：`GazeboSimSystem` 与 Gazebo Joint 建立联系
+
+这是 Gazebo + ros2\_control 中非常关键的一层。
+
+例如：
+
+```xml
+<hardware>
+    <plugin>
+        gz_ros2_control/GazeboSimSystem
+    </plugin>
+</hardware>
+```
+
+这里的：
+
+```text
+GazeboSimSystem
+```
+
+可以理解成：
+
+> **ros2\_control 与 Gazebo 仿真关节之间的 Hardware 接口。**
+
+关系：
+
+```text
+ros2_control
+     │
+     │
+     ▼
+GazeboSimSystem
+     │
+     │
+     ▼
+Gazebo Joint
+```
+
+当 Controller 给出：
+
+```text
+joint1 position = 1.0 rad
+```
+
+大致会经过：
+
+```text
+Controller
+    │
+    ▼
+Command Interface
+    │
+    ▼
+Resource Manager
+    │
+    ▼
+GazeboSimSystem
+    │
+    ▼
+Gazebo Joint
+```
+
+反过来，Gazebo 中关节的状态也可以通过：
+
+```text
+Gazebo Joint
+    │
+    ▼
+GazeboSimSystem
+    │
+    ▼
+State Interface
+    │
+    ▼
+Controller / ROS 2
+```
+
+返回。
+
+***
+
+# 12. `/robot_description` 为什么必须传给 Controller Manager？
+
+Controller Manager / Resource Manager 需要知道：
+
+```text
+<ros2_control>
+```
+
+在哪里。
+
+而 `<ros2_control>` 位于：
+
+```text
+URDF
+```
+
+中。
+
+URDF 又通过：
+
+```text
+/robot_description
+```
+
+发布。
+
+所以形成：
+
+```text
+Xacro
+ │
+ ▼
+URDF
+ │
+ ▼
+/robot_description
+ │
+ ▼
+Controller Manager
+ │
+ ▼
+Resource Manager
+ │
+ ▼
+解析 <ros2_control>
+```
+
+***
+
+# 13. 为什么需要 `/controller_manager/robot_description:=/robot_description`？
+
+某些情况下，Controller Manager 默认使用的机器人描述话题名称是：
+
+```text
+/controller_manager/robot_description
+```
+
+而实际机器人描述由 `robot_state_publisher` 发布在：
+
+```text
+/robot_description
+```
+
+于是两者不一致：
+
+```text
+Controller Manager
+        │
+        │ 默认订阅
+        ▼
+/controller_manager/robot_description
+
+但实际存在：
+
+/robot_description
+```
+
+因此需要进行 ROS 2 Topic Remapping：
+
+```xml
+<ros>
+    <remapping>
+        /controller_manager/robot_description:=/robot_description
+    </remapping>
+</ros>
+```
+
+含义是：
+
+```text
+Controller Manager 原本使用：
+
+/controller_manager/robot_description
+
+            ↓ remap
+
+实际连接：
+
+/robot_description
+```
+
+于是：
+
+```text
+robot_state_publisher
+        │
+        │ publish
+        ▼
+/robot_description
+        │
+        │ remapping
+        ▼
+Controller Manager
+        │
+        ▼
+Resource Manager
+        │
+        ▼
+解析 <ros2_control>
+```
+
+***
+
+# 14. 两份配置到底有什么区别？
+
+这是整个系统中最容易混淆的地方。
+
+## 14.1 `<ros2_control>`
+
+位于：
+
+```xml
+<ros2_control>
+    ...
+</ros2_control>
+```
+
+主要描述：
+
+```text
+Hardware
+Joint
+Command Interface
+State Interface
+```
+
+也就是：
+
+> **机器人有哪些可以被 ros2\_control 管理的资源。**
+
+例如：
+
+```xml
+<ros2_control
+    name="GazeboSystem"
+    type="system">
+
+    <hardware>
+        <plugin>
+            gz_ros2_control/GazeboSimSystem
+        </plugin>
+    </hardware>
+
+    <joint name="joint1">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+    </joint>
+
+</ros2_control>
+```
+
+***
+
+## 14.2 `ros2_controllers.yaml`
+
+主要描述：
+
+```text
+Controller
+Controller 类型
+Controller 参数
+```
+
+例如：
+
+```yaml
+controller_manager:
+  ros__parameters:
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+```
+
+它回答的是：
+
+> **“使用什么 Controller 来控制这些资源？”**
+
+***
+
+# 15. 两份配置如何组合？
+
+可以把它们理解成：
+
+```text
+<ros2_control>
+       │
+       │ 定义
+       ▼
+“我有什么资源？”
+       │
+       ├── joint1
+       ├── joint2
+       ├── joint3
+       ├── position command
+       ├── velocity state
+       └── ...
+       
+       
+ros2_controllers.yaml
+       │
+       │ 定义
+       ▼
+“我要怎么控制这些资源？”
+       │
+       ├── JointStateBroadcaster
+       └── JointTrajectoryController
+```
+
+最终：
+
+```text
+             Controller Manager
+                    │
+          ┌─────────┴─────────┐
+          │                   │
+          ▼                   ▼
+ Controller配置          Resource Manager
+          │                   │
+          │                   ▼
+          │             Hardware配置
+          │                   │
+          │                   ▼
+          │            GazeboSimSystem
+          │                   │
+          └─────────┬─────────┘
+                    ▼
+               Gazebo Joint
+```
+
+***
+
+# 16. 完整启动流程
+
+把前面的内容全部串起来：
+```text
+                 /robot_description
+                         │
+                         ▼
+                Controller Manager
+                   │           │
+                   │           │
+                   ▼           ▼
+           Resource Manager  Controller
+                   │           ▲
+                   │           │
+                   ▼           │
+            <ros2_control>   ros2_controllers.yaml
+                   │
+                   ▼
+                Hardware
+                   │
+                   ▼
+            GazeboSimSystem
+                   │
+                   ▼
+              Gazebo Joint
+```
+***
+
+# 17. 控制命令完整链路
+
+例如 MoveIt 2 最终希望让机械臂的 `joint1` 转到：
+
+```text
+1.0 rad
+```
+
+控制链路可以理解为：
+
+```text
+MoveIt 2
+   │
+   ▼
+FollowJointTrajectory
+   │
+   ▼
+arm_controller
+   │
+   ▼
+Controller Manager
+   │
+   ▼
+Command Interface
+   │
+   ▼
+Resource Manager
+   │
+   ▼
+GazeboSimSystem
+   │
+   ▼
+Gazebo Joint
+   │
+   ▼
+机械臂运动
+```
+
+而机械臂运动产生的状态又通过另一条链路返回：
+
+```text
+Gazebo Joint
+   │
+   ▼
+GazeboSimSystem
+   │
+   ▼
+State Interface
+   │
+   ▼
+Resource Manager
+   │
+   ▼
+Controller
+   │
+   ▼
+/joint_states
+   │
+   ├──► RViz
+   │
+   └──► MoveIt 2
+```
+
+因此形成完整闭环：
+
+***
+
+# 18. 最终理解：每个组件到底负责什么？
+
+| 组件                           | 主要作用                                          |
+| ---------------------------- | --------------------------------------------- |
+| Xacro                        | 生成机器人 URDF                                    |
+| URDF                         | 描述机器人的结构、模型、物理属性及相关配置                         |
+| `robot_state_publisher`      | 发布 `/robot_description` 和 TF                  |
+| `/robot_description`         | 传递完整机器人描述                                     |
+| `ros_gz_sim create`          | 请求 Gazebo 创建机器人                               |
+| Gazebo                       | 负责机器人仿真、物理计算和关节运动                             |
+| `GazeboSimROS2ControlPlugin` | 将 Gazebo 与 ros2\_control 连接                   |
+| `Controller Manager`         | 管理 Controller                                 |
+| `Resource Manager`           | 管理 Hardware Resource 和 Interface              |
+| `GazeboSimSystem`            | 将 ros2\_control Hardware Interface 连接到 Gazebo |
+| `<ros2_control>`             | 描述 Hardware、Joint、Command/State Interface     |
+| `ros2_controllers.yaml`      | 描述 Controller 及其参数                            |
+| Controller                   | 根据命令计算并输出关节控制量                                |
+| MoveIt 2                     | 进行运动规划并向 Controller 发送轨迹                      |
+
+***
+
+# 19. 最重要的三个关系
+
+学习这个系统时，可以先牢牢记住下面三个关系。
+
+## 关系一：机器人描述
+
+```text
+Xacro
+  ↓
+URDF
+  ↓
+/robot_description
+```
+
+***
+
+## 关系二：Gazebo 与 ros2\_control
+
+```text
+Gazebo
+  ↓
+GazeboSimROS2ControlPlugin
+  ↓
+ros2_control
+```
+
+***
+
+## 关系三：Controller 与 Hardware
+
+```text
+ros2_controllers.yaml
+        ↓
+Controller
+        ↓
+Controller Manager
+        ↓
+Resource Manager
+        ↓
+<ros2_control>
+        ↓
+Hardware / Interface
+        ↓
+GazeboSimSystem
+        ↓
+Gazebo Joint
+```
+
+因此，最核心的一句话是：
+
+> **Gazebo 负责“仿真机器人”，`GazeboSimROS2ControlPlugin` 负责“连接 Gazebo 和 ros2\_control”，`ResourceManager` 负责“管理硬件资源和接口”，`ControllerManager` 负责“管理 Controller”，而 `<ros2_control>` 和 `ros2_controllers.yaml` 分别提供 Hardware/Interface 配置和 Controller 配置。**

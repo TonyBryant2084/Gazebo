@@ -6,6 +6,12 @@
     <xacro:macro name="mycobot_ros2_control" params="prefix flange_link use_gazebo">
 
         <!-- 定义 ros2_control 硬件系统 -->
+        <!-- 
+            type:
+            system	一套完整的硬件系统，通常包含多个关节/执行器	机械臂、移动机器人
+            actuator	单个执行器或执行器级硬件	         单独的电机/执行器
+            sensor	    传感器硬件	                       IMU、力传感器等
+        -->
         <ros2_control name="RobotSystem" type="system">
 
             <!-- 配置硬件接口 -->

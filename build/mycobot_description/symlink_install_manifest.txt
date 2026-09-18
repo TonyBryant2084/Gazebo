@@ -31,6 +31,8 @@
 /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/mech/set.png
 /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/mycobot280_rviz.png
 /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/robots/mycobot_280.urdf.xacro
+/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/robots/mycobot_full_export.urdf
+/home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/robots/test.sh
 /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/urdf/sensors/intel_rgbd_cam_d435.urdf.xacro
 /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/rviz/default.rviz
 /home/tony/Gazebo/install/mycobot_description/share/mycobot_description/rviz/mycobot_280_description.rviz

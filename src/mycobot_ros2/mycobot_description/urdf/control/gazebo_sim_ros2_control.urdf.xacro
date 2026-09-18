@@ -12,17 +12,6 @@
         <xacro:if value="${use_gazebo}">
             <!-- Gazebo 专属标签，内部配置 Gazebo 仿真插件， 让机器人模型带上 Gazebo 的 ros2_control 插件 -->
             <gazebo>
-                <!-- 
-                    1. spawner 从 /robot_description 获得机器人描述
-                    2. spawner 向 Gazebo 发送请求: 按照 /robot_description 中的机器人描述 创建一个 机器人
-                    3. Gazebo 收到创建请求以后，根据 URDF 在 Gazebo 中创建了 机器人
-                    4. Gazebo 在解析机器人描述时发现这个机器人声明了一个 Gazebo Plugin
-                    5. Gazebo 解析 <plugin> 后，根据 filename="gz_ros2_control-system" 找到对应的动态库 libgz_ros2_control-system.so，将其动态加载，然后根据 name 实例化 GazeboSimROS2ControlPlugin 插件类
-                    6. 
-
-
-                -->
-                    
                 <!-- filename：要加载哪个插件库；name：这个插件库里面要实例化哪个插件类 -->
                 <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
                     <!-- 控制器参数文件路径，ros2_control从中读取关节控制器配置 -->
